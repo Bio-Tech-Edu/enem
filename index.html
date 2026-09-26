@@ -157,9 +157,7 @@ tailwind.config = {
     <h2 class="font-display text-xl font-semibold">Sobre o Pré-ENEM Digit@l MT</h2>
     <div class="flex flex-col sm:flex-row gap-5">
       <img src="assets/pre_enem_avatar.png" alt="Pré-Enem Digit@l MT" class="avatar-photo shrink-0">
-        <p class="mt-3 text-sm leading-relaxed" style="color:var(--ink-soft)">O Pré-ENEM Digit@l é um serviço da Secretaria de Estado de Educação de Mato Grosso (SEDUC-MT): um curso preparatório gratuito para o ENEM oferecido a estudantes da rede pública, com o objetivo de reforçar a formação e o desenvolvimento das competências e habilidades cobradas na prova. Ao longo de suas edições, o programa já combinou aulas presenciais em polos regionais — como Cuiabá, Rondonópolis, Tangará da Serra e Sinop —, transmissão por TV e conteúdo digital, com equipes de professores da rede pública e privada atuando voluntariamente.</p>
-        <p class="mt-3 text-sm leading-relaxed" style="color:var(--ink-soft)">O modelo já foi tema de relato de experiência no Seminário de Educação de Mato Grosso — SEMIEDU 2024 — sob o título <em>"Pré-Enem Digit@l MT: Potencialização do Ensino para Recomposição da Aprendizagem"</em>. Esta aula integra o aulão de Ciências da Natureza do programa, realizado em Juscimeira-MT.</p>
-        <a href="https://www3.seduc.mt.gov.br/web/seduc/servicos?c=70665304&e=70716474" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold" style="color:var(--fis)"><i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i>Página oficial do serviço (SEDUC-MT)</a>
+        <p class="mt-3 text-sm leading-relaxed" style="color:var(--ink-soft)">O Pré-ENEM Digit@l é um serviço da Secretaria de Estado de Educação de Mato Grosso (SEDUC-MT): um curso preparatório gratuito para o ENEM oferecido a estudantes da rede pública, com o objetivo de reforçar a formação e o desenvolvimento das competências e habilidades cobradas na prova. Ao longo de suas edições, o programa já combinou aulas presenciais em polos regionais — como Cuiabá, Rondonópolis, Tangará da Serra e Sinop —, transmissão por TV e conteúdo digital, com equipes de professores da rede pública e privada atuando voluntariamente. O modelo já foi tema de relato de experiência no Seminário de Educação de Mato Grosso — SEMIEDU 2024 — sob o título <em>"Pré-Enem Digit@l MT: Potencialização do Ensino para Recomposição da Aprendizagem"</em>. Esta aula integra o aulão de Ciências da Natureza do programa, realizado em Juscimeira-MT.</p><p><a href="https://www3.seduc.mt.gov.br/web/seduc/servicos?c=70665304&e=70716474" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold" style="color:var(--fis)"><i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i>Página oficial do serviço (SEDUC-MT)</a></p>
   </div>
 
   <div class="panel p-6">
@@ -177,6 +175,17 @@ tailwind.config = {
         </div>
       </div>
     </div>
+
+    <!-- Sala virtual do Projeto Pré-ENEM Digital -->
+<div class="panel p-6 text-center">
+  <h2 class="font-display text-xl font-semibold"> Acesse a sala virtual do Projeto Pré-ENEM Digital</h2>
+  <p class="mt-2 text-sm leading-relaxed" style="color:var(--ink-soft)">
+    Aponte a câmera do celular para o QR Code ou 
+    <a href="https://classroom.google.com/c/ODY3OTcyNTg4Mzcz?cjc=3rqrv3v6" target="_blank" rel="noopener" style="color:var(--fis)" class="font-semibold underline"> clique aqui para acessar a sala virtual</a>.</p>
+    <a href="https://classroom.google.com/c/ODY3OTcyNTg4Mzcz?cjc=3rqrv3v6" target="_blank" rel="noopener" class="inline-block mt-5" aria-label="Abrir a sala virtual do Projeto Pré-ENEM Digital"> <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fclassroom.google.com%2Fc%2FODY3OTcyNTg4Mzcz%3Fcjc%3D3rqrv3v6" alt="QR Code para acessar a sala virtual do Projeto Pré-ENEM Digital" width="150" height="150" class="mx-auto rounded-lg border-4 border-white shadow-md"></a>
+    <p class="mt-4 text-sm font-semibold" style="color:var(--accent)"> Observação: para acessar a sala virtual, o estudante deverá utilizar
+    seu e-mail institucional no formato <strong>matricula@edu.mt.gov.br</strong>.</p>
+</div>
   </div>
 
   <div class="panel p-6">
@@ -208,13 +217,44 @@ tailwind.config = {
     </div>
 
     <div class="panel p-6 md:col-span-3">
-      <h2 class="font-display text-lg font-semibold">Matriz de nível de complexidade em questão × TRI</h2>
-      <p class="text-sm mt-1" style="color:var(--ink-soft)">Errar fáceis e acertar difíceis é penalizado como inconsistência pela <strong>Teoria de Resposta ao Item (TRI)</strong>. Ou seja, a TRI mede a <i>coerência pedagógica do estudante</i>. <br> · Acertar questões difíceis e errar questões fáceis gera penalização por "inconsistência/chute". <br> · Prioridade estratégica absoluta: Garantir o acerto em todas as questões classificadas como fáceis e médias. </p>
-      <div class="relative h-60 mt-4"><canvas id="chartTRI" role="img" aria-label="Gráfico de barras: 30% das questões são fáceis, 50% médias e 20% difíceis"></canvas></div>
-      <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs">
-        <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--easy) 10%, var(--paper-raised))"><i data-lucide="shield-check" class="w-4 h-4 mb-1" style="color:var(--easy)" aria-hidden="true"></i><strong>Fáceis (~30%):</strong> zona de garantia. Errar aqui derruba sua régua TRI.</div>
-        <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--mid) 10%, var(--paper-raised))"><i data-lucide="flag" class="w-4 h-4 mb-1" style="color:var(--mid)" aria-hidden="true"></i><strong>Médias (~50%):</strong> maior ganho de pontuação. Prioridade máxima.</div>
-        <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--hard) 10%, var(--paper-raised))"><i data-lucide="alert-triangle" class="w-4 h-4 mb-1" style="color:var(--hard)" aria-hidden="true"></i><strong>Difíceis (~20%):</strong> resolva por último. Chutar com coerência supera perder tempo.</div>
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="font-display text-lg font-semibold">Matriz de nível de complexidade em questão × TRI</h2>
+        <div class="flex gap-2" role="tablist" aria-label="Visualização da matriz TRI">
+          <button class="subtab-btn" data-subtab="visao" role="tab" aria-selected="true" aria-controls="tri-visao" id="subtabbtn-visao">Visão geral</button>
+          <button class="subtab-btn" data-subtab="logica" role="tab" aria-selected="false" aria-controls="tri-logica" id="subtabbtn-logica">Como funciona a TRI</button>
+        </div>
+      </div>
+ 
+      <div id="tri-visao" class="subtab-panel mt-4" role="tabpanel" aria-labelledby="subtabbtn-visao">
+        <p class="text-sm" style="color:var(--ink-soft)">Errar fáceis e acertar difíceis é penalizado como inconsistência pela Teoria de Resposta ao Item.</p>
+        <div class="relative h-60 mt-4"><canvas id="chartTRI" role="img" aria-label="Gráfico de barras: 30% das questões são fáceis, 50% médias e 20% difíceis" aria-describedby="chartTRI-desc"></canvas></div>
+        <p id="chartTRI-desc" class="sr-only">Fáceis: 30% da prova, garantia absoluta, zona TRI crítica. Médias: 50% da prova, maior ganho de pontuação. Difíceis: 20% da prova, resolver por último.</p>
+        <table class="sr-only">
+          <caption>Distribuição de questões por nível de dificuldade e seu papel na régua TRI</caption>
+          <thead><tr><th scope="col">Nível</th><th scope="col">% da prova</th><th scope="col">Papel na régua TRI</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Fáceis</th><td>30%</td><td>Garantia absoluta — zona TRI crítica</td></tr>
+            <tr><th scope="row">Médias</th><td>50%</td><td>Maior ganho de pontuação</td></tr>
+            <tr><th scope="row">Difíceis</th><td>20%</td><td>Resolver por último</td></tr>
+          </tbody>
+        </table>
+        <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs">
+          <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--easy) 10%, var(--paper-raised))"><i data-lucide="shield-check" class="w-4 h-4 mb-1" style="color:var(--easy)" aria-hidden="true"></i><strong>Fáceis (~30%):</strong> zona de garantia. Errar aqui derruba sua régua TRI.</div>
+          <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--mid) 10%, var(--paper-raised))"><i data-lucide="flag" class="w-4 h-4 mb-1" style="color:var(--mid)" aria-hidden="true"></i><strong>Médias (~50%):</strong> maior ganho de pontuação. Prioridade máxima.</div>
+          <div class="rounded-lg p-3" style="border:1px solid var(--line);background:color-mix(in srgb, var(--hard) 10%, var(--paper-raised))"><i data-lucide="alert-triangle" class="w-4 h-4 mb-1" style="color:var(--hard)" aria-hidden="true"></i><strong>Difíceis (~20%):</strong> resolva por último. Chutar com coerência supera perder tempo.</div>
+        </div>
+      </div>
+ 
+      <div id="tri-logica" class="subtab-panel hidden mt-4" role="tabpanel" aria-labelledby="subtabbtn-logica">
+        <p class="text-sm leading-relaxed" style="color:var(--ink-soft)">A <strong style="color:var(--ink)">Teoria de Resposta ao Item (TRI)</strong> não conta simplesmente quantas questões o estudante acertou: ela mede a <em>coerência pedagógica</em> do padrão de acertos e erros.</p>
+        <ul class="mt-3 space-y-2 text-sm" style="color:var(--ink-soft)">
+          <li class="flex gap-2"><i data-lucide="minus-circle" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--hard)" aria-hidden="true"></i>Acertar questões difíceis e errar questões fáceis gera penalização por <strong style="color:var(--ink)">inconsistência/chute</strong> — o sistema desconfia do resultado.</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--easy)" aria-hidden="true"></i>Prioridade estratégica absoluta: <strong style="color:var(--ink)">garantir o acerto em todas as fáceis e médias</strong> antes de arriscar nas difíceis.</li>
+        </ul>
+        <figure class="mt-5">
+          <img src="assets/HQ_TRI.png" alt="Quadrinho em três cenas: dois estudantes acertam 30 questões cada, mas um tira 620 pontos e o outro 740. No segundo quadro, Sofia explica que a TRI mede a coerência pedagógica — acertar fáceis e médias garante nota alta. No terceiro, Lucas mostra seu padrão inconsistente: errou as quatro primeiras fáceis, chutou as médias e acertou as duas últimas difíceis, o que a TRI trata como chute." class="rounded-lg w-full max-w-md mx-auto" style="border:1px solid var(--line)">
+          <figcaption class="text-xs text-center mt-2" style="color:var(--ink-soft)">Exemplo: os dois estudantes acertaram o mesmo número de questões (30 de 45), mas tiraram notas bem diferentes — a diferença está em <em>quais</em> questões cada um acertou.</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -378,7 +418,7 @@ tailwind.config = {
     <img src="assets/pre_enem.png" alt="Pré-Enem Digit@l MT">
     <img src="assets/gov_mato_grosso.png" alt="Governo do Estado de Mato Grosso">
   </div>
-  <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT · Dados de frequência: série histórica INEP/ENEM 2014–2024</strong></p>
+  <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT · Dados de frequência: série histórica INEP/ENEM 2014–2024 </strong></p>
   <p>Desenvolvido por <a href="https://github.com/bio-tech-edu">Bio+Tech EduDesign</a> · Apoio institucional <strong>Governo do Estado de Mato Grosso</strong></p>
 </footer>
 
