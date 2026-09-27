@@ -1,0 +1,30 @@
+# Isso é um comentário (o Git ignora linhas com #)
+
+# 1. Ignorar um arquivo específico (em qualquer pasta)
+config.json
+senha.txt
+
+# 2. Ignorar todos os arquivos com uma extensão específica
+*.log
+*.env
+*.zip
+
+# 3. Ignorar uma pasta inteira e todo o seu conteúdo
+node_modules/
+dist/
+vendor/
+galeria-e-metricas/
+
+# 4. Ignorar um arquivo ou pasta APENAS na raiz do projeto
+/build.log
+/temp/
+
+# 5. Ignorar um arquivo dentro de uma pasta específica
+config/database.yml
+
+# 6. Ignorar arquivos em subpastas em qualquer nível (uso do **)
+**/tmp/*.txt
+
+# 7. Criar exceções (NÃO ignorar um arquivo específico)
+*.log
+!importante.log

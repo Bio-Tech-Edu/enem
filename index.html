@@ -95,6 +95,20 @@ tailwind.config = {
 
   .data-error{font-size:.8rem;color:var(--hard);padding:.75rem;border:1px dashed var(--hard);border-radius:8px}
 
+  /* ================= GALERIA DE FOTOS ================= */
+  .galeria-empty{border:2px dashed var(--line);border-radius:12px;padding:3.5rem 1.5rem;text-align:center;color:var(--ink-soft)}
+  .galeria-viewport{overflow:hidden;border-radius:12px;position:relative;background:var(--paper)}
+  .galeria-track{display:flex;transition:transform .4s ease}
+  .galeria-slide{flex:0 0 100%}
+  .galeria-slide img{width:100%;height:22rem;object-fit:cover;display:block}
+  .galeria-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(18,24,29,.6);color:#fff;border:none;width:40px;height:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .galeria-btn:hover{background:rgba(18,24,29,.8)}
+  .galeria-btn.prev{left:12px}
+  .galeria-btn.next{right:12px}
+  .galeria-dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+  .galeria-dot{width:8px;height:8px;padding:0;border-radius:9999px;background:var(--line);border:none;cursor:pointer}
+  .galeria-dot[aria-current="true"]{background:var(--fis)}
+
   /* ================= FOOTER ================= */
   .site-footer{padding:2rem 1rem 3rem;text-align:center;border-top:1px solid var(--line);
     margin-top:3rem;color:var(--ink-soft);font-size:.85rem}
@@ -145,6 +159,7 @@ tailwind.config = {
     <button class="tab-btn" data-tab="estudo" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-estudo" id="tabbtn-estudo">Estudo de caso: água</button>
     <button class="tab-btn" data-tab="desafio" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-desafio" id="tabbtn-desafio">Think-Pair-Share</button>
     <button class="tab-btn" data-tab="checklist" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-checklist" id="tabbtn-checklist">Distratores e TRI</button>
+    <button class="tab-btn" data-tab="galeria" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-galeria" id="tabbtn-galeria">Galeria de fotos</button>
   </div>
 </nav>
 
@@ -198,14 +213,70 @@ tailwind.config = {
   </div>
 
   <div class="panel p-6">
-    <h2 class="font-display text-xl font-semibold mb-4">Oportunidades do ENEM</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="landmark" class="w-5 h-5 mb-2" style="color:var(--fis)" aria-hidden="true"></i><h3 class="font-semibold text-sm">Sisu</h3><p class="text-xs mt-1" style="color:var(--ink-soft)">Sistema de Seleção Unificada: acesso a vagas em universidades e institutos federais públicos com base na nota do ENEM.</p></div>
-      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="school" class="w-5 h-5 mb-2" style="color:var(--qui)" aria-hidden="true"></i><h3 class="font-semibold text-sm">Prouni</h3><p class="text-xs mt-1" style="color:var(--ink-soft)">Programa Universidade para Todos: bolsas integrais ou parciais em faculdades e universidades privadas.</p></div>
-      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="banknote" class="w-5 h-5 mb-2" style="color:var(--bio)" aria-hidden="true"></i><h3 class="font-semibold text-sm">Fies</h3><p class="text-xs mt-1" style="color:var(--ink-soft)">Fundo de Financiamento Estudantil: financiamento da graduação em instituições privadas, pago após a conclusão do curso.</p></div>
-      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="plane" class="w-5 h-5 mb-2" style="color:var(--accent)" aria-hidden="true"></i><h3 class="font-semibold text-sm">Instituições em Portugal</h3><p class="text-xs mt-1" style="color:var(--ink-soft)">Diversas universidades portuguesas aceitam a nota do ENEM como via de ingresso, sem exigir novo vestibular.</p></div>
-      <div class="rounded-lg p-4 sm:col-span-2" style="border:1px solid var(--line)"><i data-lucide="hand-heart" class="w-5 h-5 mb-2" style="color:var(--hard)" aria-hidden="true"></i><h3 class="font-semibold text-sm">Programas de permanência estudantil</h3><p class="text-xs mt-1" style="color:var(--ink-soft)">Auxílios de moradia, alimentação e transporte oferecidos por universidades públicas para apoiar a permanência de estudantes de baixa renda até a conclusão do curso.</p></div>
+  <h2 class="font-display text-xl font-semibold mb-4">Oportunidades do ENEM</h2>
+  <div class="grid sm:grid-cols-2 gap-4">
+    
+    <div class="rounded-lg p-4" style="border:1px solid var(--line)">
+      <i data-lucide="landmark" class="w-5 h-5 mb-2" style="color:var(--fis)" aria-hidden="true"></i>
+      <h3 class="font-semibold text-sm">Sisu</h3>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Sistema de Seleção Unificada: acesso a vagas em universidades e institutos federais públicos com base na nota do ENEM.</p>
     </div>
+
+    <div class="rounded-lg p-4" style="border:1px solid var(--line)">
+      <i data-lucide="school" class="w-5 h-5 mb-2" style="color:var(--qui)" aria-hidden="true"></i>
+      <h3 class="font-semibold text-sm">Prouni</h3>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Programa Universidade para Todos: bolsas integrais ou parciais em faculdades e universidades privadas.</p>
+    </div>
+
+    <div class="rounded-lg p-4" style="border:1px solid var(--line)">
+      <i data-lucide="banknote" class="w-5 h-5 mb-2" style="color:var(--bio)" aria-hidden="true"></i>
+      <h3 class="font-semibold text-sm">Fies</h3>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Fundo de Financiamento Estudantil: financiamento da graduação em instituições privadas, pago após a conclusão do curso.</p>
+    </div>
+
+    <div class="rounded-lg p-4" style="border:1px solid var(--line)">
+      <i data-lucide="plane" class="w-5 h-5 mb-2" style="color:var(--accent)" aria-hidden="true"></i>
+      <h3 class="font-semibold text-sm">Instituições em Portugal</h3>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Diversas universidades portuguesas aceitam a nota do ENEM como via de ingresso, sem exigir novo vestibular.</p>
+    </div>
+
+    <div class="rounded-lg p-4 sm:col-span-2" style="border:1px solid var(--line)">
+      <i data-lucide="hand-heart" class="w-5 h-5 mb-2" style="color:var(--hard)" aria-hidden="true"></i>
+      <h3 class="font-semibold text-sm">🎓 Programas de Permanência Estudantil (Assistência Estudantil)</h3>
+      
+      <p class="text-xs mt-2" style="color:var(--ink-soft)">
+        O ingresso na universidade é apenas o primeiro passo. Para garantir que os estudantes — especialmente aqueles de baixa renda ou em situação de vulnerabilidade socioeconômica — tenham plenas condições de se manterem no ensino superior até a formatura, as instituições públicas oferecem a <strong>Assistência Estudantil</strong>.
+      </p>
+      
+      <p class="text-xs mt-2" style="color:var(--ink-soft)">
+        Esses programas concedem auxílios financeiros e estruturais fundamentais. <strong>Veja exemplos práticos de como isso funciona nas universidades públicas de Mato Grosso (MT) e região:</strong>
+      </p>
+
+      <ul class="list-disc pl-5 space-y-1.5 text-xs mt-2" style="color:var(--ink-soft)">
+        <li>
+          <strong>UFMT (Universidade Federal de Mato Grosso):</strong> Por meio da Pró-Reitoria de Assistência Estudantil (PRAE), a instituição oferece o <em>Auxílio Moradia</em> (uma ajuda de custo mensal para pagar aluguel), isenção ou subsídio no <em>Restaurante Universitário (RU)</em> para garantir alimentação de qualidade, além do <em>Auxílio Transporte</em> e estrutura de Residência Universitária.
+        </li>
+        <li>
+          <strong>UFR (Universidade Federal de Rondonópolis):</strong> Através da Pró-Reitoria de Assistência Estudantil (PRAE), a UFR disponibiliza um conjunto robusto de benefícios que incluem o <em>Auxílio Moradia</em> (em dinheiro/pecúnia ou vaga na Casa do Estudante Universitário - CEU), <em>Auxílio Permanência</em>, <em>Auxílio Creche</em> (para estudantes com filhos pequenos), gratuidade no <em>Restaurante Universitário (RU)</em> e suporte para monitoria inclusiva.
+        </li>
+        <li>
+          <strong>UNEMAT (Universidade do Estado de Mato Grosso):</strong> Com forte presença no interior do estado, a UNEMAT possui editais regulares de <em>Auxílio Moradia</em>, <em>Auxílio Alimentação</em> e bolsas de apoio à permanência, incluindo políticas específicas de acolhimento para estudantes indígenas e quilombolas.
+        </li>
+        <li>
+          <strong>IFMT (Instituto Federal de Mato Grosso):</strong> Através de sua Política de Assistência Estudantil, o IFMT oferece aos estudantes de graduação (licenciaturas, bacharelados e tecnólogos) o <em>Auxílio Permanência</em>, além de apoios pontuais para transporte, alimentação e inclusão digital (como auxílio para acesso à internet e compra de materiais).
+        </li>
+        <li>
+          <strong>Destaques em Estados Vizinhos (como UFMS e UFG):</strong> Caso o estudante opte por usar a nota do ENEM para universidades federais próximas (Mato Grosso do Sul ou Goiás), ele também encontrará estruturas robustas que oferecem desde auxílio-moradia até bolsas remuneradas de Iniciação Científica e Extensão.
+        </li>
+      </ul>
+
+      <div class="dica-estrategica rounded p-3 mt-4 text-xs" style="background-color: var(--surface-soft, #f8f9fa); border-left: 4px solid var(--accent, #0d6efd);">
+        <p class="m-0" style="color: var(--ink)">
+          <strong>💡 Dica Estratégica:</strong> A sua nota do ENEM (via Sisu) não apenas abre a porta de entrada da universidade, mas também é o seu passaporte para acessar esses programas de apoio logo nas primeiras semanas de aula. Estudar é um direito seu, e a universidade pública tem estrutura para apoiar quem mais precisa!
+        </p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -408,6 +479,18 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ============ TAB 5: GALERIA DE FOTOS ============ -->
+<section id="tab-galeria" class="tab-panel hidden space-y-6" role="tabpanel" aria-labelledby="tabbtn-galeria" tabindex="0">
+  <div class="panel p-6">
+    <h2 class="font-display text-xl font-semibold">Galeria de fotos</h2>
+    <p class="mt-3 text-sm leading-relaxed" style="color:var(--ink-soft)">Esta seção está reservada para o registro fotográfico do aulão de Ciências da Natureza, realizado em Juscimeira-MT pelo Projeto Pré-ENEM Digit@l MT. As fotos serão publicadas aqui logo após o evento, documentando a participação dos estudantes e a aplicação das atividades deste plano de aula — como o estudo de caso da Estação de Tratamento de Água e a dinâmica Think-Pair-Share. Volte em breve para conferir os registros!</p>
+  </div>
+
+  <div class="panel p-6">
+    <div id="galeriaCarousel" class="galeria-wrap" role="region" aria-label="Carrossel de fotos do aulão"></div>
+  </div>
+</section>
+
 </main>
 
 <!-- FOOTER -->
@@ -420,6 +503,10 @@ tailwind.config = {
   <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT · Dados de frequência: série histórica INEP/ENEM 2014–2024 </strong></p>
   <p>Desenvolvido por <a href="https://github.com/bio-tech-edu">Bio+Tech EduDesign</a> · Apoio institucional <strong>Governo do Estado de Mato Grosso</strong></p>
 </footer>
+
+<!-- Métricas simples de uso (GoatCounter — gratuito, sem cookies, sem dados pessoais). -->
+<!-- Troque "SEU-CODIGO" pela sua conta em https://www.goatcounter.com antes de publicar. -->
+<script data-goatcounter="https://SEU-CODIGO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
 /* ================= DADOS (mapa_calor.csv) ================= */
@@ -682,6 +769,60 @@ PROT.forEach((p,i)=>{
     +'<div><p class="font-semibold text-sm">'+p[0]+'</p><p class="text-sm mt-0.5" style="color:var(--ink-soft)">'+p[1]+'</p></div>';
   pl.appendChild(li);
 });
+
+/* ================= GALERIA DE FOTOS (carrossel) =================
+   Assim que as fotos do aulão estiverem disponíveis, salve-as em assets/galeria/
+   e adicione uma entrada abaixo para cada uma — o carrossel é montado automaticamente.
+   Exemplo:
+   {src:'assets/galeria/foto1.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
+*/
+const GALERIA_FOTOS=[
+  // {src:'assets/galeria/foto1.jpg', alt:'Descreva a cena da foto aqui'},
+];
+function initGaleria(){
+  const wrap=document.getElementById('galeriaCarousel');
+  if(!wrap)return;
+  if(!GALERIA_FOTOS.length){
+    wrap.innerHTML='<div class="galeria-empty">'
+      +'<i data-lucide="camera" class="w-8 h-8 mx-auto mb-3" style="color:var(--ink-soft)" aria-hidden="true"></i>'
+      +'<p class="font-semibold text-sm">Galeria em construção</p>'
+      +'<p class="text-xs mt-1 max-w-sm mx-auto">As fotos do aulão em Juscimeira-MT ainda não foram publicadas. Assim que o evento acontecer, os registros aparecerão aqui automaticamente.</p>'
+      +'</div>';
+    lucide.createIcons();
+    return;
+  }
+  let idx=0;
+  wrap.innerHTML='<div class="galeria-viewport" tabindex="0" aria-label="Use as setas do teclado para navegar entre as fotos">'
+    +'<div class="galeria-track" id="galeriaTrack"></div>'
+    +'<button class="galeria-btn prev" id="galeriaPrev" aria-label="Foto anterior"><i data-lucide="chevron-left" aria-hidden="true"></i></button>'
+    +'<button class="galeria-btn next" id="galeriaNext" aria-label="Próxima foto"><i data-lucide="chevron-right" aria-hidden="true"></i></button>'
+    +'</div><div class="galeria-dots" id="galeriaDots"></div>';
+  const track=document.getElementById('galeriaTrack');
+  const dotsWrap=document.getElementById('galeriaDots');
+  const viewport=wrap.querySelector('.galeria-viewport');
+  GALERIA_FOTOS.forEach((f,i)=>{
+    const s=document.createElement('div');s.className='galeria-slide';
+    s.innerHTML='<img src="'+f.src+'" alt="'+(f.alt||'')+'" loading="lazy">';
+    track.appendChild(s);
+    const d=document.createElement('button');d.className='galeria-dot';d.setAttribute('aria-label','Ir para a foto '+(i+1)+' de '+GALERIA_FOTOS.length);
+    d.onclick=()=>go(i);
+    dotsWrap.appendChild(d);
+  });
+  function go(i){
+    idx=(i+GALERIA_FOTOS.length)%GALERIA_FOTOS.length;
+    track.style.transform='translateX(-'+(idx*100)+'%)';
+    dotsWrap.querySelectorAll('.galeria-dot').forEach((d,j)=>d.setAttribute('aria-current', j===idx?'true':'false'));
+  }
+  document.getElementById('galeriaPrev').onclick=()=>go(idx-1);
+  document.getElementById('galeriaNext').onclick=()=>go(idx+1);
+  viewport.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1);}
+    if(e.key==='ArrowRight'){e.preventDefault();go(idx+1);}
+  });
+  go(0);
+  lucide.createIcons();
+}
+initGaleria();
 
 lucide.createIcons();
 </script>
