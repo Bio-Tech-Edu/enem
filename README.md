@@ -1,56 +1,176 @@
-# Raio-X Estratégico — Decodificando o 2º Dia do ENEM (Ciências da Natureza)
+# Raio-X Estratégico — 2º dia do ENEM
 
-Ecossistema digital interativo para aula preparatória do ENEM, baseado no plano de aula **"Raio-X Estratégico"**. Aplicação web 100% front-end (single-file), sem backend, pronta para execução local ou hospedagem no **GitHub Pages**.
+> Plataforma educacional interativa para revisar Ciências da Natureza — Biologia, Química e Física — com foco em repertório, leitura estratégica de questões e Teoria de Resposta ao Item (TRI).
 
-![Stack](https://img.shields.io/badge/HTML5-Tailwind%20CSS%20%C2%B7%20Chart.js%20%C2%B7%20Lucide-3159C9)
+[![HTML5](https://img.shields.io/badge/HTML5-100%25-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-CDN-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.4.1-FF6384?logo=chart.js&logoColor=white)](https://www.chartjs.org/)
+[![Licença](https://img.shields.io/badge/licença-a%20definir-lightgrey)](LICENSE)
 
-> **Nota de versão:** esta é a Sprint 6 do projeto — uma reconstrução crítica e visual sobre o código legado. Veja [`SPRINTS.md`](SPRINTS.md) para o histórico completo e o backlog.
+O projeto foi desenvolvido para o aulão **“Raio-X Estratégico — Decodificando o 2º Dia do ENEM”**, realizado no contexto do **Pré-ENEM Digit@l MT**, em Juscimeira-MT. A aplicação é estática, funciona diretamente no navegador e não possui backend.
 
----
+## Acesse
+
+- **Aplicação principal:** [abrir `index.html`](index.html)
+- **Checklist imprimível:** [abrir `checklist.html`](checklist.html)
+- **Repositório:** [Bio-Tech-Edu/repcn](https://github.com/Bio-Tech-Edu/repcn)
+
+> Os gráficos, ícones, fontes e estilos principais são carregados por CDN. Para visualizar todos os recursos, é necessária uma conexão com a internet.
+
+## O que a aplicação oferece
+
+### Painel interativo
+
+- Panorama das 45 questões de Ciências da Natureza, distribuídas entre Biologia, Química e Física.
+- Gráfico de distribuição estimada por nível de dificuldade e relação com a TRI.
+- Mapa de calor com **23 subtemas** e suas frequências relativas.
+- Filtros por disciplina e modal com competências BNCC/ENEM associadas.
+
+### Estudo de caso integrado
+
+A Estação de Tratamento de Água é usada como situação-problema para conectar as três áreas:
+
+- **Química:** coagulação, floculação e tratamento de misturas.
+- **Física:** decantação, gravidade, empuxo e densidade.
+- **Biologia:** desinfecção, cloração, saneamento e eutrofização.
+
+### Prática e revisão
+
+- Dinâmica **Think-Pair-Share** com cronômetro para as etapas Think, Pair e Share.
+- Questões comentadas com gabarito e análise dos distratores.
+- Guia de identificação de três perfis de distrator:
+  - falsa verdade ou extrapolação;
+  - inversão de causa e efeito;
+  - generalização absoluta.
+- Protocolo prático para organização do tempo no segundo dia do ENEM.
+- Checklist de conteúdos prioritários pronto para impressão ou exportação em PDF.
+
+### Recursos de interface
+
+- Navegação por abas com suporte a teclado e atributos ARIA.
+- Tema claro/escuro com persistência em `localStorage`.
+- Link para pular diretamente ao conteúdo principal.
+- Foco visível e respeito a `prefers-reduced-motion`.
+- Descrições alternativas para imagens e gráficos.
+- Galeria de fotos com carrossel acessível, preparada para os registros do evento.
 
 ## Estrutura do repositório
 
+```text
+.
+├── index.html                 # Aplicação principal: painel e módulos pedagógicos
+├── checklist.html             # Guia de revisão otimizado para impressão/PDF
+├── mapa_calor.csv             # Dados dos 23 subtemas e competências associadas
+├── assets/
+│   ├── galeria/               # Fotos do evento e instruções de publicação
+│   └── *.png                  # Identidade visual, avatares e ilustrações
+├── docs/
+│   └── *.docx                 # Plano executivo da aula
+├── SPRINTS.md                 # Histórico técnico, decisões e backlog
+├── .gitignore                 # Arquivos e diretórios locais ignorados pelo Git
+└── README.md                  # Documentação do projeto
 ```
-├── index.html       → Aplicação web interativa (dashboard + estudo de caso + Think-Pair-Share + distratores/TRI)
-├── checklist.html   → Guia de estudos da reta final (otimizado para impressão/PDF via @media print)
-├── mapa_calor.csv   → Base de dados: frequência relativa de temas ENEM 2015–2025 (fonte do mapa de calor)
-├── docs/            → Documentos de planejamento da aula
-├── SPRINTS.md       → Histórico de sprints, auditoria do código legado e backlog
-└── README.md        → Este arquivo
+
+## Como executar localmente
+
+Não há etapa de instalação ou compilação. Depois de clonar o repositório, abra `index.html` em um navegador moderno:
+
+```bash
+git clone https://github.com/Bio-Tech-Edu/repcn.git
+cd repcn
+
+# macOS
+open index.html
+
+# Linux
+xdg-open index.html
+
+# Windows PowerShell
+Start-Process .\index.html
 ```
 
-## Como executar
+Também é possível abrir os arquivos diretamente pelo gerenciador de arquivos. Para uma experiência mais próxima de um ambiente publicado, use um servidor estático local:
 
-**Local:** basta abrir `index.html` em qualquer navegador moderno (não requer servidor).
+```bash
+python3 -m http.server 8000
+```
 
-**GitHub Pages:**
-1. Faça push deste repositório para o GitHub;
-2. Em **Settings → Pages**, selecione a branch `main` e a pasta `/ (root)`;
-3. Acesse `https://<seu-usuário>.github.io/<repo>/`.
+Em seguida, acesse <http://localhost:8000>.
 
-> As dependências (Tailwind CSS, Chart.js, Lucide Icons, fontes Space Grotesk/IBM Plex) são carregadas via CDN — é necessária conexão com a internet.
+## Publicação no GitHub Pages
 
-## Módulos da aplicação
+1. No GitHub, abra **Settings → Pages**.
+2. Em **Build and deployment**, selecione **Deploy from a branch**.
+3. Escolha a branch `main` e a pasta `/ (root)`.
+4. Salve e aguarde a publicação.
 
-| Aba | Conteúdo |
-|---|---|
-| **Dashboard analítico** | Gráfico de rosca (Biologia/Química/Física, 33,3% cada), matriz Dificuldade × TRI e mapa de calor temático (23 subtemas do CSV, com filtro por disciplina e modal de competências BNCC/ENEM) |
-| **Estudo de caso: água** | Infográfico da Estação de Tratamento de Água integrando as três ciências — coagulação/floculação (Química), decantação (Física), desinfecção/cloração (Biologia) — e a cadeia interativa da eutrofização |
-| **Think-Pair-Share** | Cronômetro por fase (Think 2 min / Pair 3 min / Share 2 min) e 2 questões estilo ENEM com duplo feedback: gabarito comentado + análise técnica dos distratores |
-| **Distratores e TRI** | Tabela filtrável dos 3 perfis de distratores (falsa verdade, inversor de causa-efeito, generalista absoluto) e protocolo prático do 2º dia em 4 passos |
+A URL normalmente será:
 
-## Sistema de design
+```text
+https://bio-tech-edu.github.io/repcn/
+```
 
-O visual foi reconstruído em torno do conceito de **raio-x/diagnóstico**: painel escuro com textura de grade no cabeçalho (referência a negatoscópio), tipografia técnica e dados em fonte monoespaçada, evitando o padrão genérico de cards arredondados com sombra. Detalhes em [`SPRINTS.md`](SPRINTS.md).
+## Dados e fontes do conteúdo
 
-- **Tipografia:** Space Grotesk (títulos), IBM Plex Sans (texto), IBM Plex Mono (dados, percentuais, códigos de competência e cronômetro).
-- **Cor:** paleta neutra (`--paper`/`--ink`) com cores fixas por disciplina (Biologia, Química, Física) e por nível de risco na TRI (fácil/médio/difícil), consistentes em todos os gráficos e cartões.
-- **Modo claro/escuro:** via `prefers-color-scheme` com alternância manual persistida em `localStorage`, controlada por variáveis CSS (`--paper`, `--ink`, etc.).
-- **Acessibilidade:** abas com `role="tablist"`/`aria-selected`, link de pular para o conteúdo, `aria-label` nos gráficos, contraste revisado, `prefers-reduced-motion` respeitado e foco visível em todos os elementos interativos.
+O arquivo [`mapa_calor.csv`](mapa_calor.csv) organiza a frequência relativa dos temas por disciplina, subtema, nível de calor e competências BNCC/ENEM. O array `HEAT` em [`index.html`](index.html) é usado pela interface para renderizar o mapa de calor no navegador.
+
+O material pedagógico está relacionado ao plano executivo disponível em [`docs/`](docs/) e ao histórico de desenvolvimento documentado em [`SPRINTS.md`](SPRINTS.md).
+
+## Adicionando fotos à galeria
+
+1. Salve as imagens em [`assets/galeria/`](assets/galeria/), preferencialmente em `.jpg` ou `.png`.
+2. Em `index.html`, localize `GALERIA_FOTOS`.
+3. Adicione cada foto com um texto alternativo descritivo:
+
+```js
+const GALERIA_FOTOS = [
+  {
+    src: 'assets/galeria/foto1.jpg',
+    alt: 'Estudantes participando do aulão em Juscimeira-MT'
+  }
+];
+```
+
+4. Salve e publique. O carrossel será montado automaticamente.
+
+Consulte também [`assets/galeria/README.md`](assets/galeria/README.md) para as instruções específicas da galeria.
+
+## Desenvolvimento e manutenção
+
+O projeto é intencionalmente simples: a interface, os estilos e a lógica da aplicação estão concentrados em arquivos HTML, sem dependências instaladas localmente. Para alterar o conteúdo principal, os pontos de entrada mais importantes são:
+
+- `index.html`: layout, estilos, dados pedagógicos e interações;
+- `checklist.html`: versão para impressão;
+- `mapa_calor.csv`: fonte tabular do mapa temático;
+- `SPRINTS.md`: decisões técnicas, auditoria e backlog.
+
+Antes de publicar uma alteração, verifique manualmente:
+
+- carregamento dos gráficos e do mapa de calor;
+- filtros de disciplina e de distratores;
+- cronômetro Think-Pair-Share;
+- alternância de tema;
+- funcionamento do checklist para impressão;
+- existência das imagens referenciadas na galeria;
+- navegação por teclado e textos alternativos.
 
 ## Contexto pedagógico
 
-- **Trilha:** Ampliação do Repertório em Ciências da Natureza e suas Tecnologias
-- **Público-alvo:** Ensino Médio (2º e 3º anos) · Curso preparatório comunitário
-- **Duração da aula:** 50 minutos · **Metodologia:** Estudo de Caso Integrado + Think-Pair-Share
-- **Competências BNCC:** Específicas 1 e 3 de Ciências da Natureza
+- **Público:** estudantes do Ensino Médio, especialmente 2º e 3º anos.
+- **Área:** Ciências da Natureza e suas Tecnologias.
+- **Duração planejada:** 50 minutos.
+- **Metodologia:** Estudo de Caso Integrado + Think-Pair-Share.
+- **Competências:** competências específicas 1 e 3 de Ciências da Natureza.
+- **Projeto:** Pré-ENEM Digit@l MT / SEDUC-MT.
+
+## Créditos
+
+Desenvolvido por [Bio+Tech EduDesign](https://github.com/bio-tech-edu), com apoio institucional do Governo do Estado de Mato Grosso e do projeto Pré-ENEM Digit@l MT.
+
+## Status
+
+Projeto educacional estático em evolução. O histórico das sprints, a auditoria do código legado e o backlog de melhorias estão registrados em [`SPRINTS.md`](SPRINTS.md).
+
+## Licença
+
+Ainda não há um arquivo `LICENSE` no repositório. Defina e adicione uma licença antes de distribuir o código ou os materiais para reutilização pública.
