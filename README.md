@@ -229,7 +229,7 @@ Desenvolvido por **[Bio+Tech EduDesign](https://github.com/bio-tech-edu)**
 ---
 
 ## 📜 Licença
-MIT — livre para uso pedagógico em escolas públicas e privadas. Veja [LICENÇA](LICENÇA.md) .
+MIT — livre para uso pedagógico em escolas públicas e privadas. Veja [LICENÇA](LICENSE.md) .
 
 ---
 
