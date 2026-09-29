@@ -228,9 +228,8 @@ Desenvolvido por **[Bio+Tech EduDesign](https://github.com/bio-tech-edu)**
 
 ---
 
-## 📄 Licença
-
-A licença deste projeto está em definição. Para uso, distribuição ou adaptação do material, entre em contato com os desenvolvedores.
+## 📜 Licença
+MIT — livre para uso pedagógico em escolas públicas e privadas. Veja [LICENÇA](LICENÇA.md) .
 
 ---
 
@@ -239,3 +238,7 @@ A licença deste projeto está em definição. Para uso, distribuição ou adapt
 Projeto educacional ativo em evolução. Sugestões de melhorias são bem-vindas via issues no repositório.
 
 **Última atualização:** 2026-09-29
+
+--- 
+
+🇧🇷 Feito com ❤️ para estudantes brasileiros do ENEM 🇧🇷
