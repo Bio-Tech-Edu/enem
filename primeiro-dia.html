@@ -196,30 +196,155 @@ tailwind.config = {
 <!-- ============ TAB 4: PREDIÇÃO ============ -->
 <section id="tab-predicao" class="tab-panel hidden space-y-6" role="tabpanel" aria-labelledby="tabbtn-predicao" tabindex="0">
   <div class="panel p-6">
-    <h2 class="font-display text-lg font-semibold">Predição e hipóteses para as próximas edições</h2>
-    <p class="text-sm mt-1" style="color:var(--ink-soft)">Análise de hiatos da série histórica combinada à conjuntura atual. Não é "aposta de tema": é preparação de repertório por eixo.</p>
+    <h2 class="font-display text-lg font-semibold">Predição e hipóteses para a próxima edição</h2>
+    <p class="text-sm mt-1" style="color:var(--ink-soft)">15 proposições de tema cruzando dois métodos: (1) <strong style="color:var(--ink)">série histórica do ENEM 2015–2024</strong> — eixos ausentes ou pouco recentes — e (2) <strong style="color:var(--ink)">triagem de prognósticos de cursinhos e imprensa para o ENEM 2026</strong>. Não é "aposta de tema exato": é preparação de repertório por eixo.</p>
+    <div class="flex flex-wrap items-center gap-2 mt-4">
+      <span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="text-xs" style="color:var(--ink-soft)">eixo em hiato na série histórica + consenso entre as fontes consultadas</span>
+      <span class="chip ml-3" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="text-xs" style="color:var(--ink-soft)">alta recorrência social e pelo menos duas fontes convergentes</span>
+      <span class="chip ml-3" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="text-xs" style="color:var(--ink-soft)">tema de conjuntura relevante, sustentado por uma fonte principal</span>
+    </div>
   </div>
-  <div class="grid md:grid-cols-3 gap-5">
-    <div class="panel p-6" style="border-left:5px solid var(--fis)">
-      <span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA PROBABILIDADE</span>
-      <h3 class="font-display text-lg font-semibold mt-3">Tecnologia, IA e Ética</h3>
-      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> o eixo "Tecnologia e Informação" não é tema central desde 2018 (controle de dados). Com a revolução da Inteligência Artificial generativa e seus impactos no trabalho e nos direitos autorais, há um hiato enorme a ser preenchido.</p>
-      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> regulamentação da IA, deepfakes e desinformação, substituição de postos de trabalho.</p>
-    </div>
-    <div class="panel p-6" style="border-left:5px solid var(--bio)">
-      <span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA PROBABILIDADE</span>
-      <h3 class="font-display text-lg font-semibold mt-3">Impactos climáticos urbanos</h3>
-      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> meio ambiente apareceu em 2022 focado em povos tradicionais. Diante das recentes tragédias climáticas (como as enchentes no RS) e da COP30 no Brasil, o enfoque na resiliência das cidades é fortíssimo.</p>
-      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> racismo ambiental, planejamento urbano sustentável, refugiados climáticos no Brasil.</p>
-    </div>
-    <div class="panel p-6" style="border-left:5px solid var(--qui)">
-      <span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA PROBABILIDADE</span>
-      <h3 class="font-display text-lg font-semibold mt-3">Envelhecimento e saúde coletiva</h3>
-      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> a transição demográfica brasileira acelerou. Saúde pública foi cobrada em 2020 (pandemia/saúde mental), abrindo espaço para a discussão sobre infraestrutura para a terceira idade e etarismo.</p>
-      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> etarismo, sobrecarga do sistema previdenciário e de saúde, qualidade de vida na terceira idade.</p>
-    </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    <!-- ===== TIER 1 · ALTA ===== -->
+    <article class="panel p-6" style="border-left:5px solid var(--fis)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#1</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Os limites éticos do uso da Inteligência Artificial na sociedade brasileira</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> o eixo "Tecnologia e Informação" não é tema central desde 2018 (controle de dados) — é o maior hiato da série. A IA generativa entrou na rotina escolar, no trabalho e na circulação de informação, e o tema aparece nas três fontes consultadas.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> IA na aprendizagem, substituição de postos de trabalho, autoria e direitos autorais, deepfakes.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Shoshana Zuboff (Capitalismo de Vigilância); Byung-Chul Han; Kant (autonomia); Marco Civil da Internet / LGPD.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--fis)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#2</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Desafios para a proteção de crianças e adolescentes no ambiente digital</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> tema apontado em três fontes independentes e ancorado em legislação recém-aprovada (ECA Digital / Lei nº 15.211, a "Lei Felca", e Lei nº 15.100, que restringe celulares em escolas) — o ENEM costuma mirar problemas com lei nova e debate social em curso.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> cyberbullying, uso excessivo e dependência, publicidade direcionada, coleta indevida de dados de menores.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> ECA (Lei 8.069/90); Lei 15.211/2025; CF/1988 Art. 227 (prioridade absoluta); Zygmunt Bauman.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--fis)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#3</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Desafios para enfrentar os desastres climáticos extremos nas cidades brasileiras</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> meio ambiente apareceu em 2022 apenas pela via dos povos tradicionais; enchentes, secas e ondas de calor deslocaram o debate para a resiliência urbana. Presente em três fontes, com o conceito de <em>justiça climática</em> como articulador.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> racismo ambiental, ocupação de áreas de risco, ausência de planos municipais de adaptação, refugiados climáticos.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Ailton Krenak; Milton Santos; PNMC (Lei 12.187/2009); Agenda 2030 (ODS 11 e 13).</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--fis)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#4</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Saúde mental dos adolescentes brasileiros na era das telas</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> saúde mental foi cobrada em 2020 pelo viés do estigma das doenças mentais — um recorte geracional (adolescentes, telas, algoritmos de engajamento) é evolução natural e reaparece em duas fontes.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> ansiedade e comparação social, vício em telas, autocobrança estética, sucateamento da RAPS/CAPS.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Byung-Chul Han (Sociedade do Cansaço); Zygmunt Bauman; Lei 15.100/2025; CF/1988 Art. 196.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--fis)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#5</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Desafios para a inclusão de pessoas neurodivergentes na educação e no trabalho</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> dialoga diretamente com 2017 (formação educacional de surdos) — o ENEM reabre, de tempo em tempo, o eixo da inclusão educacional. Tema citado em três fontes e impulsionado por lei nova de 2026 sobre mapeamento e atendimento especializado.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> barreiras pedagógicas (TEA, TDAH, dislexia), falta de formação docente, inserção profissional, capacitismo.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Lei Brasileira de Inclusão (13.146/2015); Paulo Freire; Emmanuel Lévinas (alteridade); CF/1988 Art. 205 e 208.</p>
+    </article>
+
+    <!-- ===== TIER 2 · MÉDIA-ALTA ===== -->
+    <article class="panel p-6" style="border-left:5px solid var(--bio)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#6</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Caminhos para combater a desinformação no ambiente digital brasileiro</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> desdobramento direto de 2018 (manipulação por controle de dados), agora agravado pela IA generativa. Duas fontes citam o julgamento dos artigos do Marco Civil da Internet no STF como gatilho de atualidade.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> distinção entre verdadeiro e falso, papel dos algoritmos, discurso de ódio, letramento digital.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Hannah Arendt (verdade e política); Marco Civil da Internet; LGPD; Kant (esclarecimento).</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--bio)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#7</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Os limites da regulamentação das apostas online e o superendividamento das famílias</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> fenômeno social novo, sem precedente na série histórica — exatamente o perfil de tema "inédito" que o ENEM privilegia. Duas fontes apontam as <em>bets</em> como apostas fortes, com debate sobre saúde mental, consumo e proteção de vulneráveis.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> equilíbrio entre liberdade econômica e proteção social, publicidade de apostas, endividamento, educação financeira.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Lei 14.790/2023 (apostas de quota fixa); Código de Defesa do Consumidor; Zygmunt Bauman (modernidade líquida).</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--bio)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#8</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Gordofobia, padrões estéticos e a construção da dignidade e da autoestima</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> atualiza o eixo dos direitos humanos para o corpo e a saúde, tema citado por duas fontes, que somam o uso estético indiscriminado de medicamentos (ex.: Mounjaro) e os algoritmos "fitness" como agravantes contemporâneos.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> preconceito estrutural, transtornos alimentares, publicidade e padrões de beleza, saúde mental.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Pierre Bourdieu (capital cultural); Michel Foucault (corpos e biopoder); CF/1988 Art. 1º III (dignidade); OMS.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--bio)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#9</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Poluição por microplásticos e seus efeitos na biodiversidade e na saúde humana</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> o eixo ambiental nunca foi cobrado pelo viés científico-químico (a 1ª fase do ENEM privilegia ciência aplicada ao cotidiano), o que abre um flanco inédito — listado entre os sete temas do g1.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> descarte incorreto de plástico, superprodução, alternativas de substituição, contaminação de rios e oceanos.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Política Nacional de Resíduos Sólidos (12.305/2010); Agenda 2030 (ODS 14); Rachel Carson (Primavera Silenciosa).</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--bio)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#10</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">A confiança na ciência e nas instituições de saúde pública no Brasil</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> retoma a herança de 2020 (estigma na vacinação e na saúde mental) pelo ângulo da <em>comunicação científica</em>, com desinformação e queda de confiança como problemas-meio — apontado no g1.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> hesitação vacinal, negacionismo, transparência de dados, divulgação científica, papel das redes.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Oswaldo Cruz; Revolta da Vacina (1904); Zygmunt Bauman (pós-verdade); CF/1988 Art. 196 e 197.</p>
+    </article>
+
+    <!-- ===== TIER 3 · MÉDIA ===== -->
+    <article class="panel p-6" style="border-left:5px solid var(--qui)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#11</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Caminhos para enfrentar o trabalho análogo à escravidão e a precarização nas plataformas digitais</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> dá continuidade a 2023 (trabalho de cuidado) pelo fio do mundo do trabalho, com números que sustentam a problematização (mais de 65 mil resgates desde 1995) e o debate novo sobre entregadores e motoristas de aplicativo.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> fiscalização e denúncia, ausência de proteção trabalhista, informalidade, desigualdade regional.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> CF/1988 Art. 6º e 7º; CLT; Silvia Federici; Darcy Ribeiro.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--qui)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#12</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Os desafios da violência escolar no Brasil</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> o eixo educacional apareceu em 2017 pela via da inclusão; a violência escolar amplia esse recorte para a convivência e a segurança no ambiente de aprendizagem, com crescimento expressivo de casos na última década.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> bullying e cyberbullying, ataques e agressões, mediação de conflitos, saúde mental de professores e alunos.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> ECA; Lei 13.185/2015 (combate ao bullying); Paulo Freire; CF/1988 Art. 205 e 227.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--qui)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#13</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">Caminhos para combater a misoginia e a radicalização digital contra as mulheres</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> 2015 (violência contra a mulher) e 2023 (trabalho de cuidado) mostram que o eixo de gênero tem ciclo próprio no ENEM. A novidade é a camada digital: misoginia em rede e a inclusão do crime na Lei do Racismo.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> violência virtual, discursos de ódio, subnotificação, dependência financeira, feminicídio.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Lei Maria da Penha (11.340/2006); Lei do Feminicídio (13.104/2015); Simone de Beauvoir; Judith Butler.</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--qui)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#14</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">A importância do esporte como ferramenta de inclusão e saúde na sociedade brasileira</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> eixo nunca cobrado na série mapeada, mas sustentado por um gatilho de conjuntura raro — a Copa do Mundo de 2026 e a edição feminina —, apontado pelo g1 como uma das sete apostas.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> acesso ao esporte em periferias, esporte feminino e desigualdade de patrocínio, saúde e prevenção, combate a preconceitos.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> Lei Pelé (9.615/1998); CF/1988 Art. 217; Nelson Mandela ("o esporte tem o poder de mudar o mundo").</p>
+    </article>
+
+    <article class="panel p-6" style="border-left:5px solid var(--qui)">
+      <div class="flex items-center justify-between gap-2"><span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA</span><span class="font-mono text-xs" style="color:var(--ink-soft)">#15</span></div>
+      <h3 class="font-display text-lg font-semibold mt-3 leading-snug">A proteção da infância no Brasil: população infantil em situação de rua e violência sexual</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Por que é forte:</strong> recupera o núcleo de 2021 (invisibilidade e registro civil), quando o ENEM tratou de pessoas sem existência documental; agora o foco é a infância invisibilizada, com dados alarmantes do CadÚnico e do Anuário de Segurança Pública.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Focos possíveis:</em> acolhimento e políticas de assistência, impunidade, notificação compulsória, prevenção e rede de proteção.</p>
+      <p class="text-xs mt-2" style="color:var(--ink-soft)"><em>Repertório:</em> ECA (8.069/1990); CF/1988 Art. 227; Hannah Arendt (o direito a ter direitos); CadÚnico 2024.</p>
+    </article>
+
+  </div>
+
+  <div class="panel p-6">
+    <h2 class="font-display text-base font-semibold">Fontes da triagem de prognósticos (ENEM 2026)</h2>
+    <p class="text-xs mt-1" style="color:var(--ink-soft)">Fontes consultadas em setembro de 2026 para cruzar os temas históricos com as apostas da imprensa e de professores de redação:</p>
+    <ul class="mt-3 space-y-1.5 text-xs" style="color:var(--ink-soft)">
+      <li class="flex gap-2"><span style="color:var(--accent)">•</span><span><a href="https://g1.globo.com/educacao/enem/2026/noticia/2026/08/10/enem-2026-7-possiveis-temas-de-redacao.ghtml" target="_blank" rel="noopener" style="color:var(--fis)" class="font-semibold">g1/Globo</a> — 7 possíveis temas (Ademar Celedônio, Daniel Bravo e Vila Oliveira).</span></li>
+      <li class="flex gap-2"><span style="color:var(--accent)">•</span><span><a href="https://vestibular.brasilescola.uol.com.br/enem/15-temas-redacao-enem-2026.htm" target="_blank" rel="noopener" style="color:var(--fis)" class="font-semibold">Brasil Escola</a> — 15 temas prováveis com repertórios sugeridos.</span></li>
+      <li class="flex gap-2"><span style="color:var(--accent)">•</span><span><a href="https://querobolsa.com.br/revista/enem-2026-possiveis-temas-redacao" target="_blank" rel="noopener" style="color:var(--fis)" class="font-semibold">Quero Bolsa</a> — 5 apostas do professor Saulo Luís Genghini.</span></li>
+      <li class="flex gap-2"><span style="color:var(--accent)">•</span><span><a href="https://blogdovestibular.com/enem/temas-de-redacao-enem-2026-apostas-provaveis-e-como-se-preparar.html" target="_blank" rel="noopener" style="color:var(--fis)" class="font-semibold">Blog do Vestibular</a> — apostas prováveis e eixos de preparação.</span></li>
+    </ul>
+    <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Metodologia:</em> os temas foram classificados pelo cruzamento entre (a) o eixo histórico em hiato na série 2015–2024 e (b) o número de fontes convergentes na triagem de 2026. Tema sem lastro histórico e sem convergência não entrou na lista.</p>
   </div>
 </section>
+
 
 </main>
 
