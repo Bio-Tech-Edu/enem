@@ -101,6 +101,16 @@ tailwind.config = {
   .sg-lb-prev{left:1rem}.sg-lb-next{right:1rem}
   .sg-lb-close{top:1rem;right:1rem;width:44px;height:44px}
   body.sg-lock{overflow:hidden}
+
+    /* ================= CONTADOR DE DIAS PARA AS PROVAS ================= */
+  .cd-strip{display:flex;align-items:center;gap:.5rem;margin-top:.85rem;padding:.5rem .75rem;border-radius:8px;border:1px dashed var(--line);background:var(--paper);font-size:.8rem;font-weight:600;color:var(--ink)}
+  .cd-strip .cd-texto{color:var(--cd,var(--ink))}
+  .cd-strip .cd-data{margin-left:auto;font-size:.72rem;font-weight:500;color:var(--ink-soft);white-space:nowrap}
+  .cd-strip.is-hoje{border-style:solid;border-color:var(--cd)}
+  .cd-strip.is-passado{opacity:.7}
+  .cd-strip.is-passado .cd-texto{color:var(--ink-soft)}
+  @media (max-width:420px){.cd-strip{flex-wrap:wrap}.cd-strip .cd-data{margin-left:0;width:100%}}
+
 </style>
 </head>
 <body class="min-h-screen" style="background:var(--paper);color:var(--ink)">
@@ -141,6 +151,11 @@ tailwind.config = {
         <i data-lucide="pen-line" class="w-5 h-5" style="color:var(--accent)" aria-hidden="true"></i>
       </div>
       <h2 class="font-display text-2xl font-semibold mt-2">Linguagens, Humanas e Redação</h2>
+            <div class="cd-strip" data-date="2026-11-08" data-rotulo="1º dia" style="--cd:var(--accent)" aria-live="polite">
+        <i data-lucide="calendar-clock" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
+        <span class="cd-texto">Calculando…</span>
+        <span class="cd-data">8 de novembro de 2026</span>
+      </div>
       <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)">Dashboard analítico dos temas de redação (2015–2024): eixos temáticos recorrentes, componentes curriculares mais exigidos, repertórios socioculturais por tema e hipóteses para as próximas edições.</p>
       <ul class="mt-4 space-y-2 text-sm flex-grow" style="color:var(--ink-soft)">
         <li class="flex gap-2"><i data-lucide="bar-chart-3" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--accent)" aria-hidden="true"></i>Dashboard com frequência por eixo e por componente curricular</li>
@@ -159,13 +174,18 @@ tailwind.config = {
         <span class="text-xs font-semibold uppercase tracking-wide" style="color:var(--fis)">2º dia do ENEM</span>
         <i data-lucide="flask-conical" class="w-5 h-5" style="color:var(--fis)" aria-hidden="true"></i>
       </div>
-      <h2 class="font-display text-2xl font-semibold mt-2">Ciências da Natureza</h2>
-      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)">Painel de dados e estudo de caso integrado (Biologia, Química e Física) para decodificar o 2º dia: o que mais cai, o que garante nota na régua TRI e onde não vale a pena travar o tempo.</p>
+      <h2 class="font-display text-2xl font-semibold mt-2">Ciências da Natureza e suas tecnologias</h2>
+            <div class="cd-strip" data-date="2026-11-15" data-rotulo="2º dia" style="--cd:var(--fis)" aria-live="polite">
+        <i data-lucide="calendar-clock" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
+        <span class="cd-texto">Calculando…</span>
+        <span class="cd-data">15 de novembro de 2026</span>
+      </div>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)">Painel de dados e estudo de caso integrado da área de Ciências da Natureza (Biologia, Química e Física) para decodificar o 2º dia: o que mais cai, o que garante nota na régua TRI e onde não vale a pena travar o tempo.</p>
       <ul class="mt-4 space-y-2 text-sm flex-grow" style="color:var(--ink-soft)">
         <li class="flex gap-2"><i data-lucide="flame" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--fis)" aria-hidden="true"></i>Mapa de calor temático por componente (2014–2024)</li>
         <li class="flex gap-2"><i data-lucide="droplets" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--fis)" aria-hidden="true"></i>Estudo de caso integrado: Estação de Tratamento de Água</li>
         <li class="flex gap-2"><i data-lucide="users" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--fis)" aria-hidden="true"></i>Dinâmica Think-Pair-Share com gabarito comentado</li>
-        <li class="flex gap-2"><i data-lucide="camera" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--fis)" aria-hidden="true"></i>Distratores, TRI e galeria de fotos do aulão</li>
+        <li class="flex gap-2"><i data-lucide="camera" class="w-4 h-4 mt-0.5 shrink-0" style="color:var(--fis)" aria-hidden="true"></i>Distratores, TRI</li>
       </ul>
       <a href="segundo-dia.html" class="mt-6 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold" style="background:var(--fis)">
         <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>Abrir painel do 2º dia
@@ -337,6 +357,55 @@ const SG_FOTOS=[
   if(window.lucide)lucide.createIcons();
 })();
 lucide.createIcons();
+</script>
+
+<script>
+/* ================= CONTADOR DE DIAS PARA AS PROVAS DO ENEM =================
+   Lê a data de cada elemento com [data-date] (formato AAAA-MM-DD) e escreve quantos
+   dias faltam. Usa a meia-noite LOCAL do aparelho do estudante — não UTC — para que
+   a contagem não "pule" um dia em fusos negativos (Mato Grosso é UTC-4).
+   Recalcula sozinho na virada do dia e ao voltar para a aba; nada de recarregar.
+*/
+(function contadorEnem(){
+  var alvos=document.querySelectorAll('.cd-strip[data-date]');
+  if(!alvos.length)return;
+  var DIA=86400000;
+
+  function hojeLocal(){
+    var n=new Date();
+    return new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  }
+  function dataLocal(iso){
+    var p=iso.split('-');
+    return new Date(parseInt(p[0],10),parseInt(p[1],10)-1,parseInt(p[2],10));
+  }
+  function texto(dias,rotulo){
+    if(dias>1)return 'Faltam '+dias+' dias para o '+rotulo+' do ENEM';
+    if(dias===1)return 'Falta 1 dia para o '+rotulo+' do ENEM';
+    if(dias===0)return 'É hoje! '+rotulo.charAt(0).toUpperCase()+rotulo.slice(1)+' do ENEM';
+    return 'Prova realizada';
+  }
+  function atualizar(){
+    var hoje=hojeLocal();
+    Array.prototype.forEach.call(alvos,function(el){
+      var dias=Math.round((dataLocal(el.getAttribute('data-date'))-hoje)/DIA);
+      var rotulo=el.getAttribute('data-rotulo')||'dia';
+      var span=el.querySelector('.cd-texto');
+      if(span)span.textContent=texto(dias,rotulo);
+      el.classList.toggle('is-hoje',dias===0);
+      el.classList.toggle('is-passado',dias<0);
+      el.setAttribute('data-dias',String(dias));
+    });
+  }
+  function agendar(){
+    var a=new Date();
+    var proxima=new Date(a.getFullYear(),a.getMonth(),a.getDate()+1,0,0,5);
+    setTimeout(function(){atualizar();agendar();},proxima-a);
+  }
+  atualizar();
+  agendar();
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)atualizar();});
+})();
 </script>
 </body>
 </html>

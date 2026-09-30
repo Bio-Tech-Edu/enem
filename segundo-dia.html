@@ -95,20 +95,6 @@ tailwind.config = {
 
   .data-error{font-size:.8rem;color:var(--hard);padding:.75rem;border:1px dashed var(--hard);border-radius:8px}
 
-  /* ================= GALERIA DE FOTOS ================= */
-  .galeria-empty{border:2px dashed var(--line);border-radius:12px;padding:3.5rem 1.5rem;text-align:center;color:var(--ink-soft)}
-  .galeria-viewport{overflow:hidden;border-radius:12px;position:relative;background:var(--paper)}
-  .galeria-track{display:flex;transition:transform .4s ease}
-  .galeria-slide{flex:0 0 100%}
-  .galeria-slide img{width:100%;height:22rem;object-fit:cover;display:block}
-  .galeria-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(18,24,29,.6);color:#fff;border:none;width:40px;height:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .galeria-btn:hover{background:rgba(18,24,29,.8)}
-  .galeria-btn.prev{left:12px}
-  .galeria-btn.next{right:12px}
-  .galeria-dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
-  .galeria-dot{width:8px;height:8px;padding:0;border-radius:9999px;background:var(--line);border:none;cursor:pointer}
-  .galeria-dot[aria-current="true"]{background:var(--fis)}
-
   /* ================= FOOTER ================= */
   .site-footer{padding:2rem 1rem 3rem;text-align:center;border-top:1px solid var(--line);
     margin-top:3rem;color:var(--ink-soft);font-size:.85rem}
@@ -164,7 +150,6 @@ tailwind.config = {
     <button class="tab-btn" data-tab="estudo" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-estudo" id="tabbtn-estudo">Estudo de caso: água</button>
     <button class="tab-btn" data-tab="desafio" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-desafio" id="tabbtn-desafio">Think-Pair-Share</button>
     <button class="tab-btn" data-tab="checklist" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-checklist" id="tabbtn-checklist">Distratores e TRI</button>
-    <button class="tab-btn" data-tab="galeria" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-galeria" id="tabbtn-galeria">Galeria de fotos</button>
   </div>
 </nav>
 
@@ -762,77 +747,6 @@ PROT.forEach((p,i)=>{
     +'<div><p class="font-semibold text-sm">'+p[0]+'</p><p class="text-sm mt-0.5" style="color:var(--ink-soft)">'+p[1]+'</p></div>';
   pl.appendChild(li);
 });
-
-/* ================= GALERIA DE FOTOS (carrossel) =================
-   Assim que as fotos do aulão estiverem disponíveis, salve-as em assets/galeria/
-   e adicione uma entrada abaixo para cada uma — o carrossel é montado automaticamente.
-   Exemplo:
-   {src:'assets/galeria/foto1.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-*/
-const GALERIA_FOTOS=[
-   {src:'assets/galeria/foto_002.png', alt:'Professora Simone apresentando o repertório de Linguagem e suas tecnologias | 1º dia do ENEM'},
-   {src:'assets/galeria/foto_003.jpg', alt:'Professora Simone & Professor Vitor debatendo o repertório 1º dia do ENEM'},
-   {src:'assets/galeria/foto_004.jpg', alt:'Professor Vitor acompanhando com os estudantes o reportóerio do 1º dia do ENEM'},
-   {src:'assets/galeria/foto_005.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_006.jpg', alt:'Professora Pâmella apresentando o dashboard do Raio-X do 2º dia do ENEM'},
-   {src:'assets/galeria/foto_007.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_008.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_009.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_010.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_011.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},     
-   {src:'assets/galeria/foto_012.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_013.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_014.jpg', alt:'Estudantes participando do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_015.jpg', alt:'Professor Vitor e os estudantes participantes do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_016.jpg', alt:'Professor Vitor e os estudantes participantes do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_017.jpg', alt:'Os profissionais da educação participantes do aulão em Juscimeira-MT'},
-   {src:'assets/galeria/foto_018.jpg', alt:'Os profissionais da educação participantes do aulão em Juscimeira-MT'},
-];
-function initGaleria(){
-  const wrap=document.getElementById('galeriaCarousel');
-  if(!wrap)return;
-  if(!GALERIA_FOTOS.length){
-    wrap.innerHTML='<div class="galeria-empty">'
-      +'<i data-lucide="camera" class="w-8 h-8 mx-auto mb-3" style="color:var(--ink-soft)" aria-hidden="true"></i>'
-      +'<p class="font-semibold text-sm">Galeria em construção</p>'
-      +'<p class="text-xs mt-1 max-w-sm mx-auto">As fotos do aulão em Juscimeira-MT ainda não foram publicadas. Assim que o evento acontecer, os registros aparecerão aqui automaticamente.</p>'
-      +'</div>';
-    lucide.createIcons();
-    return;
-  }
-  let idx=0;
-  wrap.innerHTML='<div class="galeria-viewport" tabindex="0" aria-label="Use as setas do teclado para navegar entre as fotos">'
-    +'<div class="galeria-track" id="galeriaTrack"></div>'
-    +'<button class="galeria-btn prev" id="galeriaPrev" aria-label="Foto anterior"><i data-lucide="chevron-left" aria-hidden="true"></i></button>'
-    +'<button class="galeria-btn next" id="galeriaNext" aria-label="Próxima foto"><i data-lucide="chevron-right" aria-hidden="true"></i></button>'
-    +'</div><div class="galeria-dots" id="galeriaDots"></div>';
-  const track=document.getElementById('galeriaTrack');
-  const dotsWrap=document.getElementById('galeriaDots');
-  const viewport=wrap.querySelector('.galeria-viewport');
-  GALERIA_FOTOS.forEach((f,i)=>{
-    const s=document.createElement('div');s.className='galeria-slide';
-    s.innerHTML='<img src="'+f.src+'" alt="'+(f.alt||'')+'" loading="lazy">';
-    track.appendChild(s);
-    const d=document.createElement('button');d.className='galeria-dot';d.setAttribute('aria-label','Ir para a foto '+(i+1)+' de '+GALERIA_FOTOS.length);
-    d.onclick=()=>go(i);
-    dotsWrap.appendChild(d);
-  });
-  function go(i){
-    idx=(i+GALERIA_FOTOS.length)%GALERIA_FOTOS.length;
-    track.style.transform='translateX(-'+(idx*100)+'%)';
-    dotsWrap.querySelectorAll('.galeria-dot').forEach((d,j)=>d.setAttribute('aria-current', j===idx?'true':'false'));
-  }
-  document.getElementById('galeriaPrev').onclick=()=>go(idx-1);
-  document.getElementById('galeriaNext').onclick=()=>go(idx+1);
-  viewport.addEventListener('keydown',e=>{
-    if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1);}
-    if(e.key==='ArrowRight'){e.preventDefault();go(idx+1);}
-  });
-  go(0);
-  lucide.createIcons();
-}
-initGaleria();
-
 lucide.createIcons();
 </script>
 </body>
