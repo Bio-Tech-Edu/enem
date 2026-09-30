@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raio-X do 1º dia do ENEM — Linguagens, Humanas e Redação</title>
+<meta name="description" content="Dashboard analítico dos temas de redação do ENEM (2015–2024), linha do tempo, repertórios socioculturais e predição de temas. Pré-ENEM Digit@l MT · SEDUC-MT.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: { extend: {
+    colors: {
+      ink:'#12181D', paper:'#F1F3F1',
+      bio:'#2F7A56', qui:'#7C57C9', fis:'#3159C9',
+      accent:'#B97116', accentglow:'#E0972E',
+      easy:'#2F7A56', mid:'#B97116', hard:'#8C3B3B'
+    },
+    fontFamily: {
+      display: ['"Space Grotesk"','system-ui','sans-serif'],
+      sans: ['"IBM Plex Sans"','system-ui','sans-serif'],
+      mono: ['"IBM Plex Mono"','ui-monospace','monospace']
+    }
+  }}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F3F1; --paper-raised:#FFFFFF; --ink:#12181D; --ink-soft:#4B565C; --line:#D7DEDA;
+    --accent:#B97116; --accent-glow:#E0972E;
+    --bio:#2F7A56; --qui:#7C57C9; --fis:#3159C9;
+    --easy:#2F7A56; --mid:#B97116; --hard:#8C3B3B;
+    --focus:#3159C9;
+  }
+  html.dark{
+    --paper:#0B1013; --paper-raised:#12181C; --ink:#ECEEEE; --ink-soft:#A8B1B4; --line:#263130;
+    --accent:#E0972E; --accent-glow:#F0AD4E;
+    --bio:#49B084; --qui:#A88CE8; --fis:#7095F0;
+    --easy:#49B084; --mid:#E0972E; --hard:#C77C79;
+    --focus:#7095F0;
+  }
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink)}
+  .font-display{font-family:'Space Grotesk',system-ui,sans-serif}
+  .font-mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+  .scanfield{
+    background-color:#0B1013;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size:24px 24px;
+  }
+  .panel{background:var(--paper-raised);border:1px solid var(--line);border-radius:12px}
+  .tab-strip{border-bottom:1px solid var(--line)}
+  .tab-btn{position:relative;padding:.85rem .25rem;font-size:.9rem;font-weight:600;color:var(--ink-soft);white-space:nowrap;background:none;border:none;cursor:pointer}
+  .tab-btn::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;background:transparent;border-radius:2px 2px 0 0}
+  .tab-btn:hover{color:var(--ink)}
+  .tab-btn[aria-selected="true"]{color:var(--ink)}
+  .tab-btn[aria-selected="true"]::after{background:var(--accent-glow)}
+  .fade-in{animation:fadeIn .3s ease both}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  a:focus-visible, button:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px}
+  ::-webkit-scrollbar{height:8px;width:8px}::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:8px}
+  @media (prefers-reduced-motion: reduce){.fade-in{animation:none}}
+  .skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:.6rem 1rem;z-index:100;border-radius:0 0 8px 0}
+  .skip-link:focus{left:0}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .chip{display:inline-block;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:9999px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft)}
+  .site-footer{padding:2rem 1rem 3rem;text-align:center;border-top:1px solid var(--line);margin-top:3rem;color:var(--ink-soft);font-size:.85rem}
+  .site-footer .logos{display:flex;justify-content:center;align-items:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
+  .site-footer .logos img{height:50px;object-fit:contain;opacity:.92;background:rgba(255,255,255,.92);padding:6px 10px;border-radius:8px}
+  .site-footer a{color:var(--fis);text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body class="min-h-screen" style="background:var(--paper);color:var(--ink)">
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="scanfield text-white">
+  <div class="max-w-6xl mx-auto px-5 pt-10 pb-8 md:pt-14 md:pb-10">
+    <div class="flex flex-wrap items-start justify-between gap-6">
+      <div class="max-w-2xl">
+        <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight leading-[1.08]">Raio-X do 1º dia do ENEM</h1>
+        <p class="mt-4 text-white/75 text-base leading-relaxed max-w-xl">Dashboard analítico dos temas de redação do ENEM (2015–2024): eixos temáticos recorrentes, repertórios socioculturais produtivos e hipóteses para as próximas edições — para chegar à proposta de intervenção com argumentos de sobra.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="darkToggle" aria-pressed="false" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-2 text-sm font-medium transition">
+          <i data-lucide="moon" class="w-4 h-4" aria-hidden="true"></i><span class="hidden sm:inline">Tema</span>
+        </button>
+        <a href="index.html" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-2 text-sm font-medium transition">
+          <i data-lucide="home" class="w-4 h-4" aria-hidden="true"></i><span class="hidden sm:inline">Início</span>
+        </a>
+        <a href="segundo-dia.html" class="flex items-center gap-2 bg-white text-ink hover:bg-white/90 rounded-lg px-3 py-2 text-sm font-semibold transition">
+          <i data-lucide="flask-conical" class="w-4 h-4" aria-hidden="true"></i><span class="hidden sm:inline">Painel do 2º dia</span>
+        </a>
+      </div>
+    </div>
+    <dl class="mt-9 grid grid-cols-2 md:grid-cols-4 border-t border-white/15">
+      <div class="border-r border-white/15 py-4 pr-4"><dt class="text-xs text-white/55">Questões objetivas (LC + CH)</dt><dd class="font-mono text-2xl mt-1">90</dd></div>
+      <div class="border-r border-white/15 py-4 px-4"><dt class="text-xs text-white/55">Redação</dt><dd class="font-mono text-2xl mt-1">0–1000</dd></div>
+      <div class="md:border-r border-white/15 py-4 px-4"><dt class="text-xs text-white/55">Temas analisados</dt><dd class="font-mono text-2xl mt-1">2015–24</dd></div>
+      <div class="py-4 pl-4 md:pl-4"><dt class="text-xs text-white/55">Competências da redação</dt><dd class="font-mono text-2xl mt-1">5</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ============ TAB NAV ============ -->
+<nav class="sticky top-0 z-40 tab-strip" style="background:var(--paper-raised)" role="tablist" aria-label="Seções do painel">
+  <div class="max-w-6xl mx-auto px-5 flex gap-7 overflow-x-auto">
+    <button class="tab-btn" data-tab="dashboard" role="tab" aria-selected="true" tabindex="0" aria-controls="tab-dashboard" id="tabbtn-dashboard">Dashboard analítico</button>
+    <button class="tab-btn" data-tab="timeline" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-timeline" id="tabbtn-timeline">Linha do tempo</button>
+    <button class="tab-btn" data-tab="repertorios" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-repertorios" id="tabbtn-repertorios">Repertórios e intervenção</button>
+    <button class="tab-btn" data-tab="predicao" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-predicao" id="tabbtn-predicao">Predição de temas</button>
+  </div>
+</nav>
+
+<main id="conteudo" class="max-w-6xl mx-auto px-5 py-8">
+
+<!-- ============ TAB 1: DASHBOARD ANALÍTICO ============ -->
+<section id="tab-dashboard" class="tab-panel fade-in space-y-6" role="tabpanel" aria-labelledby="tabbtn-dashboard" tabindex="0">
+
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="panel p-5" style="border-top:4px solid var(--fis)">
+      <h3 class="text-xs font-semibold uppercase" style="color:var(--ink-soft)">Temas analisados</h3>
+      <p class="font-mono text-3xl font-semibold mt-2">12</p>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Edições regulares, PPL e reaplicações · 2015–2024</p>
+    </div>
+    <div class="panel p-5" style="border-top:4px solid var(--qui)">
+      <h3 class="text-xs font-semibold uppercase" style="color:var(--ink-soft)">Eixo mais cobrado</h3>
+      <p class="font-display text-xl font-semibold mt-2 leading-tight">Direitos Humanos e Cidadania</p>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Presente, de forma direta ou transversal, na maioria das propostas</p>
+    </div>
+    <div class="panel p-5" style="border-top:4px solid var(--bio)">
+      <h3 class="text-xs font-semibold uppercase" style="color:var(--ink-soft)">Componente Top 1</h3>
+      <p class="font-mono text-3xl font-semibold mt-2">Sociologia</p>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Mais exigido para a leitura crítica das problemáticas</p>
+    </div>
+    <div class="panel p-5" style="border-top:4px solid var(--accent)">
+      <h3 class="text-xs font-semibold uppercase" style="color:var(--accent)">Alerta de hiato temporal</h3>
+      <p class="text-sm font-medium mt-2">Tecnologia não é tema central desde <strong class="font-mono text-lg" style="color:var(--accent)">2018</strong>.</p>
+      <p class="text-xs mt-1" style="color:var(--ink-soft)">Maior lacuna da série histórica — ver aba Predição</p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-5">
+    <div class="panel p-6">
+      <h2 class="font-display text-lg font-semibold">Frequência por eixo temático</h2>
+      <p class="text-sm mt-1" style="color:var(--ink-soft)">Agrupamento estatístico dos 12 temas · ENEM 2015–2024</p>
+      <div class="relative h-72 mt-4"><canvas id="eixoChart" role="img" aria-label="Gráfico de barras com a frequência dos eixos temáticos das redações do ENEM entre 2015 e 2024"></canvas></div>
+    </div>
+    <div class="panel p-6">
+      <h2 class="font-display text-lg font-semibold">Componentes curriculares mais exigidos</h2>
+      <p class="text-sm mt-1" style="color:var(--ink-soft)">Repertório de áreas do conhecimento mobilizadas pelas propostas</p>
+      <div class="relative h-72 mt-4"><canvas id="componenteChart" role="img" aria-label="Gráfico de rosca com os seis componentes curriculares mais exigidos nos temas de redação"></canvas></div>
+    </div>
+  </div>
+
+  <div class="panel p-6">
+    <h2 class="font-display text-lg font-semibold">Como ler este dashboard</h2>
+    <div class="grid sm:grid-cols-3 gap-4 mt-4 text-sm">
+      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="target" class="w-5 h-5 mb-2" style="color:var(--fis)" aria-hidden="true"></i><strong>Eixo temático</strong><p class="text-xs mt-1" style="color:var(--ink-soft)">O recorte macro do INEP. Temas novos quase sempre recombina eixos já cobrados — treinar repertório por eixo, não por tema exato.</p></div>
+      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="book-open" class="w-5 h-5 mb-2" style="color:var(--bio)" aria-hidden="true"></i><strong>Componentes</strong><p class="text-xs mt-1" style="color:var(--ink-soft)">Indicam de onde saem os argumentos: Sociologia, História e Filosofia formam a espinha dorsal de qualquer redação nota 1000.</p></div>
+      <div class="rounded-lg p-4" style="border:1px solid var(--line)"><i data-lucide="hammer" class="w-5 h-5 mb-2" style="color:var(--accent)" aria-hidden="true"></i><strong>Proposta de intervenção</strong><p class="text-xs mt-1" style="color:var(--ink-soft)">A Competência 5 exige agente, ação, meio, finalidade e detalhamento. A aba Repertórios lista agentes concretos por tema.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 2: LINHA DO TEMPO ============ -->
+<section id="tab-timeline" class="tab-panel hidden space-y-6" role="tabpanel" aria-labelledby="tabbtn-timeline" tabindex="0">
+  <div class="panel p-6">
+    <h2 class="font-display text-lg font-semibold">Linha do tempo dos temas de redação</h2>
+    <p class="text-sm mt-1 mb-4" style="color:var(--ink-soft)">Todas as propostas mapeadas · ENEM 2015–2024 (edições regulares, PPL e reaplicações)</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="text-left text-xs" style="color:var(--ink-soft);border-bottom:1px solid var(--line)">
+          <th class="py-3 pr-4">Ano</th><th class="py-3 pr-4">Eixo temático</th><th class="py-3">Tema da redação</th>
+        </tr></thead>
+        <tbody id="timeline-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: REPERTÓRIOS ============ -->
+<section id="tab-repertorios" class="tab-panel hidden space-y-6" role="tabpanel" aria-labelledby="tabbtn-repertorios" tabindex="0">
+  <div class="panel p-6">
+    <h2 class="font-display text-lg font-semibold">Repertórios socioculturais e propostas de intervenção</h2>
+    <p class="text-sm mt-1" style="color:var(--ink-soft)">Para cada tema: subtemas problematizadores, repertórios conceituais legitimados e agentes de intervenção — a matéria-prima das Competências 2, 3 e 5.</p>
+  </div>
+  <div id="repGrid" class="grid md:grid-cols-2 gap-5"></div>
+</section>
+
+<!-- ============ TAB 4: PREDIÇÃO ============ -->
+<section id="tab-predicao" class="tab-panel hidden space-y-6" role="tabpanel" aria-labelledby="tabbtn-predicao" tabindex="0">
+  <div class="panel p-6">
+    <h2 class="font-display text-lg font-semibold">Predição e hipóteses para as próximas edições</h2>
+    <p class="text-sm mt-1" style="color:var(--ink-soft)">Análise de hiatos da série histórica combinada à conjuntura atual. Não é "aposta de tema": é preparação de repertório por eixo.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="panel p-6" style="border-left:5px solid var(--fis)">
+      <span class="chip" style="color:var(--fis);border-color:var(--fis)">ALTA PROBABILIDADE</span>
+      <h3 class="font-display text-lg font-semibold mt-3">Tecnologia, IA e Ética</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> o eixo "Tecnologia e Informação" não é tema central desde 2018 (controle de dados). Com a revolução da Inteligência Artificial generativa e seus impactos no trabalho e nos direitos autorais, há um hiato enorme a ser preenchido.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> regulamentação da IA, deepfakes e desinformação, substituição de postos de trabalho.</p>
+    </div>
+    <div class="panel p-6" style="border-left:5px solid var(--bio)">
+      <span class="chip" style="color:var(--bio);border-color:var(--bio)">MÉDIA-ALTA PROBABILIDADE</span>
+      <h3 class="font-display text-lg font-semibold mt-3">Impactos climáticos urbanos</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> meio ambiente apareceu em 2022 focado em povos tradicionais. Diante das recentes tragédias climáticas (como as enchentes no RS) e da COP30 no Brasil, o enfoque na resiliência das cidades é fortíssimo.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> racismo ambiental, planejamento urbano sustentável, refugiados climáticos no Brasil.</p>
+    </div>
+    <div class="panel p-6" style="border-left:5px solid var(--qui)">
+      <span class="chip" style="color:var(--qui);border-color:var(--qui)">MÉDIA PROBABILIDADE</span>
+      <h3 class="font-display text-lg font-semibold mt-3">Envelhecimento e saúde coletiva</h3>
+      <p class="text-sm mt-2 leading-relaxed" style="color:var(--ink-soft)"><strong style="color:var(--ink)">Justificativa analítica:</strong> a transição demográfica brasileira acelerou. Saúde pública foi cobrada em 2020 (pandemia/saúde mental), abrindo espaço para a discussão sobre infraestrutura para a terceira idade e etarismo.</p>
+      <p class="text-xs mt-3" style="color:var(--ink-soft)"><em>Possíveis focos:</em> etarismo, sobrecarga do sistema previdenciário e de saúde, qualidade de vida na terceira idade.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="logos">
+    <img src="assets/biotech_edudesign.png" alt="Bio+Tech EduDesign">
+    <img src="assets/pre_enem.png" alt="Pré-Enem Digit@l MT">
+    <img src="assets/gov_mato_grosso.png" alt="Governo do Estado de Mato Grosso">
+  </div>
+  <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT · Dashboard interativo desenvolvido a partir da análise de dados das provas de Redação do ENEM (2015–2024)</strong></p>
+  <p>Desenvolvido por <a href="https://github.com/bio-tech-edu">Bio+Tech EduDesign</a> · Apoio institucional <strong>Governo do Estado de Mato Grosso</strong></p>
+</footer>
+
+<!-- Métricas simples de uso (GoatCounter — gratuito, sem cookies, sem dados pessoais). -->
+<!-- Troque "SEU-CODIGO" pela sua conta em https://www.goatcounter.com antes de publicar. -->
+<script data-goatcounter="https://SEU-CODIGO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script>
+/* ================= DADOS (mapeamento_temas_redacao_enem.csv) ================= */
+const DATA=[
+{ano:2024,edicao:"Regular",eixo:"Cultura e Identidade / Questões Raciais",tema:"Desafios para a valorização da herança africana no Brasil",subtemas:"Racismo estrutural; Apagamento e epistemicídio cultural; Falta de representatividade e valorização da ancestralidade; Desafios no ensino da história e cultura afro-brasileira (Lei 10.639/03)",componentes:"Sociologia; História; Filosofia; Artes; Literatura",repertorios:"Lélia Gonzalez (Amefricanidade); Djamila Ribeiro (Pequeno Manual Antirracista); Epistemicídio (Sueli Carneiro); Lei 10.639/03; Documentário AmarElo (Emicida); Samba-enredo Mangueira 2019",agentes:"Ministério da Cultura; Ministério da Educação; Mídia; Escolas; ONGs de Direitos Humanos"},
+{ano:2023,edicao:"Regular",eixo:"Sociedade, Gênero e Trabalho",tema:"Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil",subtemas:"Sobrecarga feminina no trabalho doméstico e de cuidado; Divisão sexual do trabalho; Desvalorização econômica e social do cuidado; Dupla e tripla jornada; Falta de creches e apoio governamental",componentes:"Sociologia; História; Economia; Filosofia; Direitos Humanos",repertorios:"Silvia Federici (O Calibã e a Bruxa); Émile Durkheim (Divisão do Trabalho Social); Pierre Bourdieu (A Dominação Masculina); Economia do Cuidado",agentes:"Ministério das Mulheres; Ministério do Trabalho e Emprego; Congresso Nacional; Escolas e Mídia"},
+{ano:2022,edicao:"Regular",eixo:"Direitos Humanos e Meio Ambiente",tema:"Desafios para a valorização de comunidades e povos tradicionais no Brasil",subtemas:"Grilagem e desmatamento em terras indígenas e quilombolas; Apagamento de saberes ancestrais; Falta de demarcação de terras; Violência no campo; Ameaça à preservação ambiental",componentes:"Geografia; História; Sociologia; Filosofia; Biologia",repertorios:"Ailton Krenak (Ideias para adiar o fim do mundo); Darcy Ribeiro (O Povo Brasileiro); Claude Lévi-Strauss (Etnocentrismo); CF/1988 Art. 231",agentes:"Ministério dos Povos Indígenas; FUNAI; IBAMA; Ministério da Educação; Mídia"},
+{ano:2021,edicao:"Regular",eixo:"Cidadania e Direitos Humanos",tema:"Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil",subtemas:"Subregistro de nascimento; Marginalização social e extrema pobreza; Impedimento de acesso a benefícios sociais, saúde e educação; Burocracia e distância de cartórios",componentes:"Sociologia; Ciência Política; Geografia; Filosofia; Direito",repertorios:"T. H. Marshall (Cidadania e Classe Social); Milton Santos (Cidadãos Mutilados); Thomas Hobbes (Contrato Social); CF/1988 Art. 1º e 5º",agentes:"Ministério da Justiça; Ministério do Desenvolvimento Social; Receita Federal; Cartórios; Prefeituras"},
+{ano:2020,edicao:"Regular",eixo:"Saúde Pública e Sociedade",tema:"O estigma associado às doenças mentais na sociedade brasileira",subtemas:"Preconceito e psicofobia; Falta de informação e tabu sobre saúde mental; Sucateamento da RAPS e dos CAPS; Pressão social e trabalho gerando transtornos",componentes:"Psicologia; Sociologia; Medicina/Saúde Coletiva; História; Filosofia",repertorios:"Michel Foucault (História da Loucura); Nise da Silveira (Reforma Psiquiátrica); Byung-Chul Han (A Sociedade do Cansaço); Zygmunt Bauman (Modernidade Líquida)",agentes:"Ministério da Saúde; Ministério da Educação; Mídia e Redes Sociais; Escolas e UBS"},
+{ano:2020,edicao:"PPL / Reaplicação",eixo:"Saúde Pública e Cidadania",tema:"O desafio de reverter o estigma da vacinação no Brasil",subtemas:"Movimentos antivacina e desinformação; Cobertura vacinal em queda; Retorno de doenças erradicadas (sarampo); Fake news e hesitação vacinal",componentes:"Biologia/Imunologia; História; Sociologia; Comunicação",repertorios:"Oswaldo Cruz e a Revolta da Vacina (1904); Zé Gotinha e campanhas do PNI; Imunidade de rebanho; Zygmunt Bauman (Pós-verdade)",agentes:"Ministério da Saúde; Ministério das Comunicações; ANVISA; Mídia e Escolas"},
+{ano:2019,edicao:"Regular",eixo:"Cultura e Meio de Comunicação",tema:"Democratização do acesso ao cinema no Brasil",subtemas:"Concentração de salas em shoppings de grandes centros; Altos custos de ingressos; Centralização cultural e elitização da arte; Falta de incentivo ao cinema nacional e periférico",componentes:"Sociologia; História; Artes; Filosofia; Economia",repertorios:"Adorno e Horkheimer (Indústria Cultural); Pierre Bourdieu (Capital Cultural); CF/1988 Art. 215; Walter Benjamin (Obra de Arte na Era de sua Reprodutibilidade Técnica)",agentes:"Ministério da Cultura; ANCINE; Prefeituras; Iniciativa privada / exibidores"},
+{ano:2018,edicao:"Regular",eixo:"Tecnologia e Informação",tema:"Manipulação do comportamento do usuário pelo controle de dados na internet",subtemas:"Bolhas de informação e algoritmos de recomendação; Perda de autonomia e liberdade de escolha; Uso indevido de dados pessoais; Falta de letramento digital e privacidade",componentes:"Sociologia; Filosofia; Tecnologia da Informação; Comunicação; Direito",repertorios:"Shoshana Zuboff (Capitalismo de Vigilância); Zygmunt Bauman (Modernidade Líquida); Kant (Maioridade e autonomia); Marco Civil da Internet / LGPD",agentes:"Ministério das Comunicações; ANATEL; Escolas; Plataformas / Big Techs"},
+{ano:2017,edicao:"Regular",eixo:"Educação e Inclusão Social",tema:"Desafios para a formação educacional de surdos no Brasil",subtemas:"Insuficiência de intérpretes de LIBRAS e professores capacitados; Falta de infraestrutura inclusiva; Preconceito e isolamento social; Descumprimento da LDB e da Lei Brasileira de Inclusão",componentes:"Educação; Língua Portuguesa/Linguística; Sociologia; Filosofia; História",repertorios:"Paulo Freire (Pedagogia do Oprimido); CF/1988 Art. 205; Lei Brasileira de Inclusão (13.146/2015); Alteridade (Emmanuel Lévinas)",agentes:"MEC; Secretarias de Educação; Universidades públicas; Mídia e ONGs"},
+{ano:2016,edicao:"Regular (1ª aplicação)",eixo:"Religião e Direitos Humanos",tema:"Caminhos para combater a intolerância religiosa no Brasil",subtemas:"Preconceito contra religiões de matriz africana; Laicidade do Estado ameaçada; Violência e depredação de terreiros; Falta de ensino sobre diversidade religiosa",componentes:"História; Filosofia; Sociologia; Direitos Humanos",repertorios:"Voltaire (Tratado sobre a Tolerância); John Locke (Carta sobre a Tolerância); CF/1988 Art. 5º VI; Durkheim (Formas Elementares da Vida Religiosa)",agentes:"Ministério da Justiça e Direitos Humanos; MEC; Polícia Civil e Judiciário; Mídia e lideranças religiosas"},
+{ano:2016,edicao:"PPL / 2ª aplicação",eixo:"Questões Raciais e Sociedade",tema:"Caminhos para combater o racismo no Brasil",subtemas:"Racismo estrutural e institucional; Desigualdade socioeconômica; Mito da democracia racial; Violência policial e seletividade penal",componentes:"História; Sociologia; Filosofia; Direitos Humanos",repertorios:"Gilberto Freyre (crítica ao mito); Florestan Fernandes (A Integração do Negro); Silvio Almeida (Racismo Estrutural); Frantz Fanon (Peles Negras, Máscaras Brancas)",agentes:"Ministério dos Direitos Humanos; Ministério da Igualdade Racial; Judiciário; Escolas e Universidades"},
+{ano:2015,edicao:"Regular",eixo:"Gênero e Violência Social",tema:"A persistência da violência contra a mulher na sociedade brasileira",subtemas:"Cultura patriarcal e machismo estrutural; Feminicídio e agressões domésticas; Gargalos na Lei Maria da Penha; Culpabilização da vítima e dependência financeira",componentes:"Sociologia; História; Direito; Filosofia",repertorios:"Simone de Beauvoir (O Segundo Sexo); Maria da Penha e Lei 11.340/06; Judith Butler (Estudos de Gênero); Hobbes (Papel do Estado)",agentes:"Ministério das Mulheres; Delegacias da Mulher (DEAM); Judiciário; Mídia e Escolas"}
+];
+
+/* ================= TEMA CLARO/ESCURO ================= */
+const root=document.documentElement;
+if(localStorage.theme==='dark'||(!('theme' in localStorage)&&matchMedia('(prefers-color-scheme: dark)').matches)) root.classList.add('dark');
+function syncToggle(){document.getElementById('darkToggle').setAttribute('aria-pressed', root.classList.contains('dark')?'true':'false');}
+syncToggle();
+document.getElementById('darkToggle').onclick=()=>{
+  root.classList.toggle('dark');
+  localStorage.theme=root.classList.contains('dark')?'dark':'light';
+  syncToggle();
+};
+
+/* ================= ABAS ================= */
+const tabBtns=Array.from(document.querySelectorAll('.tab-btn'));
+function activateTab(b,opts){
+  opts=opts||{};
+  tabBtns.forEach(x=>{x.setAttribute('aria-selected','false');x.tabIndex=-1;});
+  b.setAttribute('aria-selected','true');b.tabIndex=0;
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.add('hidden'));
+  const p=document.getElementById('tab-'+b.dataset.tab);
+  p.classList.remove('hidden');p.classList.remove('fade-in');void p.offsetWidth;p.classList.add('fade-in');
+  if(opts.focus)b.focus();
+}
+tabBtns.forEach((b,i)=>{
+  b.onclick=()=>activateTab(b);
+  b.addEventListener('keydown',e=>{
+    let idx=null;
+    if(e.key==='ArrowRight')idx=(i+1)%tabBtns.length;
+    else if(e.key==='ArrowLeft')idx=(i-1+tabBtns.length)%tabBtns.length;
+    else if(e.key==='Home')idx=0;
+    else if(e.key==='End')idx=tabBtns.length-1;
+    if(idx!==null){e.preventDefault();activateTab(tabBtns[idx],{focus:true});}
+  });
+});
+
+/* ================= LINHA DO TEMPO ================= */
+const tbody=document.getElementById('timeline-body');
+DATA.forEach(item=>{
+  const tr=document.createElement('tr');
+  tr.className='fade-in align-top';
+  tr.style.borderBottom='1px solid var(--line)';
+  tr.innerHTML='<td class="py-3 pr-4 whitespace-nowrap font-mono font-semibold" style="color:var(--fis)">'+item.ano+'<span class="block text-xs font-normal" style="color:var(--ink-soft)">'+item.edicao+'</span></td>'
+    +'<td class="py-3 pr-4"><span class="chip">'+item.eixo+'</span></td>'
+    +'<td class="py-3 text-sm font-medium">'+item.tema+'</td>';
+  tbody.appendChild(tr);
+});
+
+/* ================= REPERTÓRIOS ================= */
+const repGrid=document.getElementById('repGrid');
+DATA.forEach(item=>{
+  const card=document.createElement('article');
+  card.className='panel p-6 fade-in';
+  const list=txt=>'<ul class="mt-2 space-y-1.5 text-xs" style="color:var(--ink-soft)">'+txt.split(';').map(s=>'<li class="flex gap-2"><span style="color:var(--accent)">•</span><span>'+s.trim()+'</span></li>').join('')+'</ul>';
+  card.innerHTML='<div class="flex items-center gap-2 flex-wrap"><span class="font-mono text-sm font-semibold" style="color:var(--fis)">'+item.ano+'</span><span class="chip">'+item.edicao+'</span><span class="chip">'+item.eixo+'</span></div>'
+    +'<h3 class="font-display text-base font-semibold mt-3 leading-snug">'+item.tema+'</h3>'
+    +'<p class="text-xs font-semibold mt-4 uppercase" style="color:var(--ink-soft)">Subtemas problematizadores</p>'+list(item.subtemas)
+    +'<p class="text-xs font-semibold mt-4 uppercase" style="color:var(--ink-soft)">Repertórios conceituais</p>'+list(item.repertorios)
+    +'<p class="text-xs font-semibold mt-4 uppercase" style="color:var(--ink-soft)">Agentes de intervenção (Competência 5)</p>'
+    +'<div class="mt-2 flex flex-wrap gap-1.5">'+item.agentes.split(';').map(a=>'<span class="chip">'+a.trim()+'</span>').join('')+'</div>';
+  repGrid.appendChild(card);
+});
+
+/* ================= GRÁFICOS ================= */
+const isDark=()=>root.classList.contains('dark');
+const txt=()=>isDark()?'#A8B1B4':'#4B565C';
+const css=v=>getComputedStyle(root).getPropertyValue(v).trim();
+
+const eixoMap={"Direitos Humanos e Cidadania":0,"Saúde Pública e Sociedade":0,"Cultura e Identidade":0,"Sociedade e Gênero":0,"Tecnologia e Informação":0,"Educação e Inclusão Social":0,"Meio Ambiente":0};
+DATA.forEach(item=>{
+  const e=item.eixo.toLowerCase();
+  if(e.includes('religião'))eixoMap["Direitos Humanos e Cidadania"]++;
+  else if(e.includes('direitos humanos')&&!e.includes('meio ambiente'))eixoMap["Direitos Humanos e Cidadania"]++;
+  else if(e.includes('saúde'))eixoMap["Saúde Pública e Sociedade"]++;
+  else if(e.includes('cultura')||e.includes('raciais'))eixoMap["Cultura e Identidade"]++;
+  else if(e.includes('gênero')||e.includes('trabalho'))eixoMap["Sociedade e Gênero"]++;
+  else if(e.includes('tecnologia'))eixoMap["Tecnologia e Informação"]++;
+  else if(e.includes('educação'))eixoMap["Educação e Inclusão Social"]++;
+  else if(e.includes('meio ambiente'))eixoMap["Meio Ambiente"]++;
+  else eixoMap["Direitos Humanos e Cidadania"]++;
+});
+const compMap={};
+DATA.forEach(item=>{
+  item.componentes.split(';').forEach(c=>{
+    const clean=c.trim().split('/')[0];
+    if(clean==="Direitos Humanos")return;
+    compMap[clean]=(compMap[clean]||0)+1;
+  });
+});
+const sortedComps=Object.entries(compMap).sort((a,b)=>b[1]-a[1]).slice(0,6);
+
+new Chart(document.getElementById('eixoChart'),{
+  type:'bar',
+  data:{labels:Object.keys(eixoMap),datasets:[{label:'Frequência do eixo temático',data:Object.values(eixoMap),backgroundColor:css('--fis'),borderRadius:6}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1,color:txt()},grid:{color:'rgba(148,163,184,.15)'}},x:{ticks:{color:txt(),font:{size:10}},grid:{display:false}}}}
+});
+new Chart(document.getElementById('componenteChart'),{
+  type:'doughnut',
+  data:{labels:sortedComps.map(c=>c[0]),datasets:[{data:sortedComps.map(c=>c[1]),backgroundColor:[css('--fis'),css('--bio'),css('--accent'),css('--hard'),css('--qui'),'#64748B'],borderWidth:3,borderColor:isDark()?'#12181C':'#FFFFFF',hoverOffset:4}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{color:txt(),font:{weight:'600',size:11}}}}}
+});
+
+lucide.createIcons();
+</script>
+</body>
+</html>
