@@ -74,6 +74,33 @@ tailwind.config = {
   .site-footer .logos img{height:50px;object-fit:contain;opacity:.92;background:rgba(255,255,255,.92);padding:6px 10px;border-radius:8px}
   .site-footer a{color:var(--fis);text-decoration:none}
   .site-footer a:hover{text-decoration:underline}
+  
+  /* ================= GALERIA DE FOTOS (grade responsiva + lightbox) ================= */
+  .galeria-empty{border:2px dashed var(--line);border-radius:12px;padding:3.5rem 1.5rem;text-align:center;color:var(--ink-soft)}
+  .sg-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+  .sg-count{font-size:.72rem;font-weight:600;padding:.3rem .75rem;border-radius:9999px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);white-space:nowrap}
+  .sg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.85rem}
+  .sg-item{position:relative;display:block;margin:0;padding:0;width:100%;aspect-ratio:4/3;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);cursor:zoom-in}
+  .sg-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .35s ease}
+  .sg-item:hover img,.sg-item:focus-visible img{transform:scale(1.05)}
+  .sg-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,16,19,.6),rgba(11,16,19,0) 58%);opacity:0;transition:opacity .3s ease;pointer-events:none}
+  .sg-item:hover .sg-veil,.sg-item:focus-visible .sg-veil{opacity:1}
+  .sg-zoom{position:absolute;right:.5rem;bottom:.5rem;width:30px;height:30px;border-radius:9999px;background:rgba(11,16,19,.62);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease}
+  .sg-item:hover .sg-zoom,.sg-item:focus-visible .sg-zoom{opacity:1}
+  @media (max-width:640px){.sg-grid{grid-template-columns:repeat(2,1fr);gap:.5rem}.sg-item{border-radius:8px}}
+  @media (prefers-reduced-motion:reduce){.sg-item img{transition:none}.sg-item:hover img{transform:none}.sg-veil,.sg-zoom{transition:none}}
+  .sg-lightbox{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;background:rgba(6,9,11,.93);padding:1rem}
+  .sg-lightbox.is-open{display:flex}
+  .sg-lb-figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.7rem;max-width:100%}
+  .sg-lb-img{max-width:min(96vw,var(--sg-native-w,96vw));max-height:min(80vh,var(--sg-native-h,80vh));width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+  .sg-lb-cap{color:#E9EDEF;font-size:.85rem;line-height:1.45;text-align:center;max-width:44rem;margin:0}
+  .sg-lb-idx{color:#9AA6AC;font-size:.75rem;font-family:'IBM Plex Mono',ui-monospace,monospace;margin:0}
+  .sg-lb-btn,.sg-lb-close{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:9999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+  .sg-lb-btn:hover,.sg-lb-close:hover{background:rgba(255,255,255,.26)}
+  .sg-lb-btn{top:50%;transform:translateY(-50%);width:46px;height:46px}
+  .sg-lb-prev{left:1rem}.sg-lb-next{right:1rem}
+  .sg-lb-close{top:1rem;right:1rem;width:44px;height:44px}
+  body.sg-lock{overflow:hidden}
 </style>
 </head>
 <body class="min-h-screen" style="background:var(--paper);color:var(--ink)">
@@ -159,6 +186,29 @@ tailwind.config = {
     </div>
   </div>
 
+  <!-- ============ GALERIA DE FOTOS DO AULÃO ============ -->
+  <section class="panel p-6" aria-labelledby="galeriaTitulo">
+    <div class="sg-head">
+      <div class="max-w-2xl">
+        <h2 id="galeriaTitulo" class="font-display text-xl font-semibold">Galeria de fotos do aulão</h2>
+        <p class="mt-2 text-sm leading-relaxed" style="color:var(--ink-soft)">Registro fotográfico do aulão em Juscimeira-MT (Projeto Pré-ENEM Digit@l MT): os repertórios do 1º dia, o dashboard analítico e o estudo de caso da Estação de Tratamento de Água do 2º dia. Clique em qualquer foto para vê-la em tela cheia, na resolução original e sem cortes.</p>
+      </div>
+      <span class="sg-count" id="sgCount" aria-live="polite"></span>
+    </div>
+    <div class="sg-grid" id="sgGrid" role="group" aria-label="Fotos do aulão em Juscimeira-MT"></div>
+    <div class="sg-lightbox" id="sgLightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da foto">
+      <button type="button" class="sg-lb-close" id="sgClose" aria-label="Fechar visualização"><i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i></button>
+      <button type="button" class="sg-lb-btn sg-lb-prev" id="sgPrev" aria-label="Foto anterior"><i data-lucide="chevron-left" class="w-5 h-5" aria-hidden="true"></i></button>
+      <figure class="sg-lb-figure">
+        <img class="sg-lb-img" id="sgImg" src="" alt="">
+        <figcaption class="sg-lb-cap" id="sgCap"></figcaption>
+        <p class="sg-lb-idx" id="sgIdx"></p>
+      </figure>
+      <button type="button" class="sg-lb-btn sg-lb-next" id="sgNext" aria-label="Próxima foto"><i data-lucide="chevron-right" class="w-5 h-5" aria-hidden="true"></i></button>
+    </div>
+  </section>
+
+
   <!-- CHECKLIST -->
   <div class="panel p-6 flex flex-wrap items-center justify-between gap-4">
     <div>
@@ -196,6 +246,96 @@ document.getElementById('darkToggle').onclick=()=>{
   localStorage.theme=root.classList.contains('dark')?'dark':'light';
   syncToggle();
 };
+/* ================= GALERIA DE FOTOS (grade responsiva + lightbox) =================
+   w/h são as dimensões nativas de cada arquivo: reservam o espaço antes do
+   carregamento e impedem que o lightbox amplie a imagem além da resolução original.
+*/
+const SG_FOTOS=[
+ {src:'assets/galeria/foto_002.png',w:1500,h:1125,alt:'Professora Simone apresentando o repertório de Linguagem e suas tecnologias no 1º dia do ENEM'},
+ {src:'assets/galeria/foto_003.jpg',w:1500,h:768,alt:'Professora Simone e Professor Vitor debatendo o repertório do 1º dia do ENEM'},
+ {src:'assets/galeria/foto_004.jpg',w:1500,h:1125,alt:'Professor Vitor acompanhando com os estudantes o repertório do 1º dia do ENEM'},
+ {src:'assets/galeria/foto_005.jpg',w:900,h:803,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_006.jpg',w:900,h:533,alt:'Professora Pâmella apresentando o dashboard do Raio-X do 2º dia do ENEM'},
+ {src:'assets/galeria/foto_007.jpg',w:900,h:458,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_008.jpg',w:900,h:775,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_009.jpg',w:900,h:423,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_010.jpg',w:900,h:813,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_011.jpg',w:1394,h:910,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_012.jpg',w:900,h:752,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_013.jpg',w:1558,h:731,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_014.jpg',w:1531,h:813,alt:'Estudantes participando do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_015.jpg',w:900,h:533,alt:'Professor Vitor e os estudantes participantes do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_016.jpg',w:1415,h:1018,alt:'Professor Vitor e os estudantes participantes do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_017.jpg',w:1408,h:1122,alt:'Os profissionais da educação participantes do aulão em Juscimeira-MT'},
+ {src:'assets/galeria/foto_018.jpg',w:1480,h:1067,alt:'Os profissionais da educação participantes do aulão em Juscimeira-MT'}
+];
+(function initGaleria(){
+  const grid=document.getElementById('sgGrid');
+  if(!grid)return;
+  const lb=document.getElementById('sgLightbox');
+  const lbImg=document.getElementById('sgImg');
+  const lbCap=document.getElementById('sgCap');
+  const lbIdx=document.getElementById('sgIdx');
+  const btnPrev=document.getElementById('sgPrev');
+  const btnNext=document.getElementById('sgNext');
+  const btnClose=document.getElementById('sgClose');
+  const count=document.getElementById('sgCount');
+  if(!SG_FOTOS.length){
+    grid.innerHTML='<div class="galeria-empty"><p class="font-semibold text-sm">Galeria em construção</p><p class="text-xs mt-1">As fotos do aulão serão publicadas aqui.</p></div>';
+    return;
+  }
+  if(count)count.textContent=SG_FOTOS.length+' fotos';
+  SG_FOTOS.forEach(function(f,i){
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='sg-item';
+    b.setAttribute('aria-label','Ampliar foto '+(i+1)+' de '+SG_FOTOS.length+': '+(f.alt||''));
+    b.innerHTML='<img src="'+f.src+'" alt="'+(f.alt||'')+'" width="'+f.w+'" height="'+f.h+'" loading="lazy" decoding="async">'
+      +'<span class="sg-veil" aria-hidden="true"></span>'
+      +'<span class="sg-zoom" aria-hidden="true"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>';
+    b.addEventListener('click',function(){abrir(i);});
+    grid.appendChild(b);
+  });
+  let cur=0,ultimoFoco=null;
+  function render(){
+    const f=SG_FOTOS[cur];
+    lbImg.src=f.src;
+    lbImg.alt=f.alt||'';
+    lbImg.style.setProperty('--sg-native-w',f.w+'px');
+    lbImg.style.setProperty('--sg-native-h',f.h+'px');
+    lbCap.textContent=f.alt||'';
+    lbIdx.textContent=(cur+1)+' / '+SG_FOTOS.length;
+  }
+  function abrir(i){
+    cur=i;render();ultimoFoco=document.activeElement;
+    lb.classList.add('is-open');document.body.classList.add('sg-lock');
+    btnClose.focus();
+  }
+  function fechar(){
+    lb.classList.remove('is-open');document.body.classList.remove('sg-lock');
+    if(ultimoFoco&&ultimoFoco.focus)ultimoFoco.focus();
+  }
+  function mover(d){cur=(cur+d+SG_FOTOS.length)%SG_FOTOS.length;render();}
+  btnPrev.onclick=function(){mover(-1);};
+  btnNext.onclick=function(){mover(1);};
+  btnClose.onclick=fechar;
+  lb.addEventListener('click',function(e){if(e.target===lb)fechar();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('is-open'))return;
+    if(e.key==='Escape')fechar();
+    else if(e.key==='ArrowLeft'){e.preventDefault();mover(-1);}
+    else if(e.key==='ArrowRight'){e.preventDefault();mover(1);}
+  });
+  let x0=null;
+  lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(x0===null)return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>45)mover(dx<0?1:-1);
+    x0=null;
+  },{passive:true});
+  if(window.lucide)lucide.createIcons();
+})();
 lucide.createIcons();
 </script>
 </body>
