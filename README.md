@@ -1,14 +1,13 @@
 # Raio-X do ENEM — Aulão em Juscimeira
 
-Plataforma estática de apoio pedagógico para o ENEM, com foco em Ciências da Natureza, análise de repertório e revisão estratégica do 2º dia da prova. O projeto reúne dashboards interativos, materiais de aula, checklist de revisão e recursos visuais para uso em sala de aula, estudo individual e preparação para simulados.
+Plataforma estática de apoio pedagógico para o ENEM, com foco em Ciências da Natureza, análise de repertório e revisão estratégica do 2º dia da prova. O projeto reúne dashboard interativo, materiais didáticos e checklist para impressão em um único repositório.
 
 [![HTML5](https://img.shields.io/badge/HTML5-100%25-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-4.4.1-FF6384?logo=chart.js&logoColor=white)](https://www.chartjs.org/)
 
 ## Visão geral
 
-Este repositório contém uma aplicação web estática, sem backend, projetada para apoiar aulas, revisões e simulados do ENEM. A proposta central é transformar a análise de tendências e competências em uma experiência visual e acessível para estudantes e professores.
+Este repositório contém uma aplicação web estática, sem backend, criada para apoiar aulas, revisões e simulados do ENEM. A proposta central é transformar a análise de tendências, competências e distratores em uma experiência visual clara, acessível e orientada ao estudo estratégico.
 
 A estrutura do projeto inclui:
 
@@ -36,9 +35,9 @@ A estrutura do projeto inclui:
 
 ### Material didático
 - estudo de caso integrado com contexto real
-- abordagem de repertório estratégico e de análise de distratores
+- abordagem de repertório estratégico e análise de distratores
 - checklist para revisão rápida e impressão
-- suporte visual para sala de aula e para estudo autônomo
+- suporte visual para sala de aula e estudo autônomo
 
 ### Experiência de uso
 - responsividade para desktop, tablet e mobile
@@ -49,7 +48,7 @@ A estrutura do projeto inclui:
 ## Estrutura do repositório
 
 ```text
-repcn/
+enem/
 ├── index.html                   # Página principal do projeto
 ├── primeiro-dia.html            # Painel do 1º dia do ENEM
 ├── segundo-dia.html             # Painel do 2º dia do ENEM
@@ -69,7 +68,8 @@ repcn/
 │   ├── mapa_calor.csv          # Base de dados de temas e frequência
 │   ├── mapeamento_temas_redacao_enem.csv
 │   └── Plano de Aula Executivo ... .docx
-└── .gitignore
+├── .gitignore
+└── .github/
 ```
 
 ## Como executar localmente
@@ -77,8 +77,8 @@ repcn/
 ### Opção 1: abrir diretamente no navegador
 
 ```bash
-git clone https://github.com/Bio-Tech-Edu/repcn.git
-cd repcn
+git clone https://github.com/Bio-Tech-Edu/enem.git
+cd enem
 # macOS
 open index.html
 # Linux
@@ -90,7 +90,7 @@ start index.html
 ### Opção 2: usar um servidor local
 
 ```bash
-cd repcn
+cd enem
 python3 -m http.server 8000
 ```
 
@@ -115,12 +115,12 @@ http://localhost:8000
 A página ficará disponível em:
 
 ```text
-https://bio-tech-edu.github.io/repcn/
+https://bio-tech-edu.github.io/enem/
 ```
 
 ## Melhorias de qualidade e boas práticas para este tipo de projeto
 
-A implementação atual mostra um bom alinhamento pedagógico e visual com o público-alvo. Para projetos estáticos de apresentação e ensino, as práticas mais importantes são:
+A implementação atual mostra bom alinhamento pedagógico e visual com o público-alvo. Para projetos estáticos de apresentação e ensino, as práticas mais importantes são:
 
 ### 1) Separar conteúdo, apresentação e comportamento
 - manter HTML para estrutura semântica
@@ -142,7 +142,7 @@ A implementação atual mostra um bom alinhamento pedagógico e visual com o pú
 - manter a interface responsiva e leve para mobile
 
 ### 4) Manter dados e conteúdo organizados
-- armazenar bases e listas em arquivos estruturados (`CSV`, JSON, ou módulos JS)
+- armazenar bases e listas em arquivos estruturados (`CSV`, JSON ou módulos JS)
 - separar conteúdos pedagógicos de código visual
 - documentar como dados foram gerados, atualizados e mantidos
 
