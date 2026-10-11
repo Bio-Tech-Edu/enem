@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de Estudos da Reta Final — 1º dia (Linguagens, Humanas e Redação)</title>
+<meta name="description" content="Checklist de conteúdos prioritários, guia de eliminação de distratores, protocolo de execução da prova e as cinco competências da redação do ENEM — 1º dia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#12181D;--ink-soft:#4B565C;--line:#D7DEDA;--fis:#3159C9;--bio:#2F7A56;--qui:#7C57C9}
+  *{box-sizing:border-box}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);max-width:820px;margin:0 auto;padding:32px 24px;line-height:1.6}
+  h1{font-family:'Space Grotesk',system-ui,sans-serif;font-size:1.7rem;margin:0 0 4px;font-weight:700}
+  h2{font-family:'Space Grotesk',system-ui,sans-serif;font-size:1.05rem;border-bottom:2px solid var(--fis);padding-bottom:6px;margin-top:34px}
+  h3{font-size:.9rem;margin:18px 0 8px;font-weight:600}
+  .sub{color:var(--ink-soft);font-size:.9rem}
+  .field{display:flex;gap:24px;margin:18px 0}
+  .field span{flex:1;border-bottom:1px solid var(--ink);padding:4px 2px;color:var(--ink-soft);font-size:.85rem}
+  ul.cb{list-style:none;padding-left:0;margin:8px 0}
+  ul.cb li{margin:8px 0;font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+  .box{display:inline-block;width:14px;height:14px;border:1.5px solid var(--ink);border-radius:3px;flex-shrink:0;margin-top:3px}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:10px}
+  th{background:var(--ink);color:#fff;text-align:left;padding:9px 10px;font-weight:600}
+  td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
+  ol.proto li{margin:11px 0;font-size:.92rem}
+  .tag{display:inline-block;font-weight:700;font-size:.78rem;padding:2px 0}
+  .tag.bio{color:var(--bio)} .tag.qui{color:var(--qui)} .tag.fis{color:var(--fis)}
+  .btnbar{display:flex;gap:10px;margin:18px 0 30px}
+  .btnbar button,.btnbar a{background:var(--fis);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:600;cursor:pointer;text-decoration:none;font-size:.85rem;font-family:inherit}
+  .btnbar a{background:var(--ink)}
+
+  /* ================= FOOTER ================= */
+  .site-footer{padding:2rem 1rem 3rem;text-align:center;border-top:1px solid var(--line);
+    margin-top:3rem;color:var(--ink-soft);font-size:.85rem}
+  .site-footer .logos{display:flex;justify-content:center;align-items:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
+  .site-footer .logos img{height:50px;object-fit:contain;opacity:.92;background:rgba(255,255,255,.92);padding:6px 10px;border-radius:8px}
+  .site-footer a{color:var(--fis);text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
+</style>
+</head>
+<body data-checklist="d1">
+
+<h1>Guia de Revisão e Checklist de Reta Final</h1>
+<p class="sub">Linguagens, Códigos e suas Tecnologias · Ciências Humanas e suas Tecnologias · Redação · ENEM, 1º dia</p>
+
+<div class="btnbar">
+  <button type="button" onclick="window.print()">Imprimir / salvar em PDF</button>
+  <a href="primeiro-dia.html">Voltar ao painel</a>
+</div>
+
+<div class="field">
+  <span>Nome do estudante: </span>
+  <span>Turma / ano: </span>
+</div>
+
+<div class="progress" id="progresso" hidden>
+  <div class="progress-topo">
+    <p class="progress-texto" id="progressTexto" aria-live="polite"></p>
+    <button type="button" class="btn-limpar" id="limpar">Limpar marcações</button>
+  </div>
+  <div class="progress-barra" role="presentation"><span id="progressFill"></span></div>
+</div>
+
+<h2>1. Checklist de conteúdos prioritários por componente</h2>
+
+<h3><span class="tag fis">Língua Portuguesa e Literatura</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Interpretação de texto:</strong> gêneros digitais, charge, tirinha, propaganda e infográfico; efeitos de sentido e intencionalidade.</span></li>
+  <li><span class="box"></span><span><strong>Funções e figuras de linguagem:</strong> metáfora, ironia, hipérbole e eufemismo; intertextualidade, paródia e pastiche.</span></li>
+  <li><span class="box"></span><span><strong>Variação linguística:</strong> norma padrão × variedades coloquiais, regionalismos e o debate sobre preconceito linguístico.</span></li>
+  <li><span class="box"></span><span><strong>Literatura:</strong> modernismo (1ª, 2ª e 3ª fases), Semana de 22, cordel e poesia marginal; relação obra × contexto histórico.</span></li>
+  <li><span class="box"></span><span><strong>Gêneros argumentativos:</strong> artigo de opinião, editorial, resenha crítica e carta aberta — estrutura e marcas de autoria.</span></li>
+</ul>
+
+<h3><span class="tag qui">Arte</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Vanguardas europeias:</strong> cubismo, surrealismo, futurismo e expressionismo; ruptura e choque estético.</span></li>
+  <li><span class="box"></span><span><strong>Patrimônio cultural:</strong> bens materiais e imateriais, tombamento, museus e educação patrimonial.</span></li>
+  <li><span class="box"></span><span><strong>Linguagens artísticas:</strong> artes visuais, música, teatro, dança e arte digital — suportes e códigos.</span></li>
+  <li><span class="box"></span><span><strong>Arte brasileira:</strong> barroco mineiro (Aleijadinho), modernismo e arte contemporânea; identidade nacional.</span></li>
+  <li><span class="box"></span><span><strong>Indústria cultural:</strong> mercado da arte, acessibilidade e democratização do consumo cultural.</span></li>
+</ul>
+
+<h3><span class="tag bio">Educação Física</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Corpo e saúde:</strong> sedentarismo, práticas corporais, alimentação e qualidade de vida.</span></li>
+  <li><span class="box"></span><span><strong>Esporte:</strong> rendimento × participação, esporte adaptado e inclusão de pessoas com deficiência.</span></li>
+  <li><span class="box"></span><span><strong>Cultura corporal:</strong> mídia, padrões estéticos, doping e uso de suplementos.</span></li>
+  <li><span class="box"></span><span><strong>Jogos e brincadeiras:</strong> manifestações da cultura popular e sua função social.</span></li>
+  <li><span class="box"></span><span><strong>Atividade física e saúde pública:</strong> políticas de incentivo e acesso ao esporte em periferias.</span></li>
+</ul>
+
+<h3><span class="tag fis">Língua Estrangeira (Inglês / Espanhol)</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Leitura e inferência:</strong> cognatos e falsos cognatos, vocabulário pelo contexto e ideia central do texto.</span></li>
+  <li><span class="box"></span><span><strong>Gêneros textuais:</strong> meme, letra de música, notícia, post e propaganda — função comunicativa.</span></li>
+  <li><span class="box"></span><span><strong>Gramática em uso:</strong> tempos verbais, comparativos e superlativos, conectores e voz passiva.</span></li>
+  <li><span class="box"></span><span><strong>Vocabulário temático:</strong> tecnologia, meio ambiente, saúde, trabalho e cultura.</span></li>
+  <li><span class="box"></span><span><strong>Interpretação de gráficos e imagens</strong> com legendas em língua estrangeira.</span></li>
+</ul>
+
+<h3><span class="tag qui">História</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Brasil República:</strong> Era Vargas, ditadura militar (1964–1985) e redemocratização; Constituição de 1988.</span></li>
+  <li><span class="box"></span><span><strong>Escravidão e pós-abolição:</strong> resistência, abolição, racismo estrutural e movimentos negros e indígenas.</span></li>
+  <li><span class="box"></span><span><strong>Mundo contemporâneo:</strong> guerras mundiais, Guerra Fria, descolonização e conflitos atuais.</span></li>
+  <li><span class="box"></span><span><strong>Colonização e formação do Brasil:</strong> economia colonial, bandeirantes, quilombos e fronteiras.</span></li>
+  <li><span class="box"></span><span><strong>Cidadania e direitos:</strong> Constituições brasileiras, voto, leis trabalhistas e conquistas sociais.</span></li>
+</ul>
+
+<h3><span class="tag bio">Geografia</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Geopolítica e globalização:</strong> blocos econômicos, fluxos migratórios e divisão internacional do trabalho.</span></li>
+  <li><span class="box"></span><span><strong>Urbanização:</strong> metropolização, mobilidade urbana, favelização e desigualdade socioespacial.</span></li>
+  <li><span class="box"></span><span><strong>Natureza e clima:</strong> biomas brasileiros, El Niño, crise hídrica, eventos extremos e justiça climática.</span></li>
+  <li><span class="box"></span><span><strong>Agropecuária:</strong> agronegócio, agricultura familiar, conflitos no campo e uso de agrotóxicos.</span></li>
+  <li><span class="box"></span><span><strong>Energia e recursos:</strong> matriz energética, fontes renováveis e impactos socioambientais.</span></li>
+</ul>
+
+<h3><span class="tag qui">Filosofia</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Ética e moral:</strong> Kant (imperativo categórico), utilitarismo e ética das virtudes em dilemas atuais.</span></li>
+  <li><span class="box"></span><span><strong>Contratualistas:</strong> Hobbes, Locke e Rousseau; legitimidade do poder e função do Estado.</span></li>
+  <li><span class="box"></span><span><strong>Escola de Frankfurt:</strong> indústria cultural e razão instrumental em Adorno e Horkheimer.</span></li>
+  <li><span class="box"></span><span><strong>Filosofia antiga e moderna:</strong> Sócrates, Platão, Aristóteles, Descartes e o problema do conhecimento.</span></li>
+  <li><span class="box"></span><span><strong>Filosofia política:</strong> liberdade, igualdade, justiça social e os direitos humanos.</span></li>
+</ul>
+
+<h3><span class="tag bio">Sociologia</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Desigualdade e estratificação:</strong> classes sociais, mobilidade, pobreza e indicadores (Gini, IDH).</span></li>
+  <li><span class="box"></span><span><strong>Cidadania e direitos humanos:</strong> T. H. Marshall, movimentos sociais e conquistas recentes.</span></li>
+  <li><span class="box"></span><span><strong>Cultura e identidade:</strong> etnocentrismo, relativismo cultural, raça, gênero e diversidade.</span></li>
+  <li><span class="box"></span><span><strong>Trabalho e tecnologia:</strong> precarização, plataformas digitais, automação e desemprego estrutural.</span></li>
+  <li><span class="box"></span><span><strong>Clássicos:</strong> Durkheim (fatos sociais), Weber (ação social) e Marx (classes e mais-valia).</span></li>
+</ul>
+
+
+<h2>2. Checklist da redação nota 1000 (as cinco competências)</h2>
+<p class="sub">Texto dissertativo-argumentativo · até 30 linhas. Marque cada item ao revisar o seu próprio texto.</p>
+
+<h3><span class="tag" style="color:var(--ink,#12181D)">C1 · Norma padrão</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span>Acentuação</span></li>
+  <li><span class="box"></span><span>Separação silábica</span></li>
+  <li><span class="box"></span><span>Crase e vírgula</span></li>
+  <li><span class="box"></span><span>Ortografia</span></li>
+  <li><span class="box"></span><span>Concordância e regência</span></li>
+  <li><span class="box"></span><span>Registro formal</span></li>
+</ul>
+
+<h3><span class="tag" style="color:var(--ink,#12181D)">C2 · Tema e tipo</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span>Recorte exato do tema</span></li>
+  <li><span class="box"></span><span>Estrutura dissertativo-argumentativa</span></li>
+  <li><span class="box"></span><span>Repertório legítimo, pertinente e produtivo</span></li>
+</ul>
+
+<h3><span class="tag" style="color:var(--ink,#12181D)">C3 · Argumentação</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span>Projeto de texto</span></li>
+  <li><span class="box"></span><span>Tese clara</span></li>
+  <li><span class="box"></span><span>Argumentos desenvolvidos</span></li>
+  <li><span class="box"></span><span>Sem contradições</span></li>
+</ul>
+
+<h3><span class="tag" style="color:var(--ink,#12181D)">C4 · Coesão</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span>Conectivos variados</span></li>
+  <li><span class="box"></span><span>Retomadas sem repetição</span></li>
+  <li><span class="box"></span><span>Ligação entre parágrafos</span></li>
+</ul>
+
+<h3><span class="tag" style="color:var(--ink,#12181D)">C5 · Intervenção</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span>Agente e ação</span></li>
+  <li><span class="box"></span><span>Meio e finalidade</span></li>
+  <li><span class="box"></span><span>Detalhamento</span></li>
+  <li><span class="box"></span><span>Respeito aos direitos humanos</span></li>
+</ul>
+
+<h2>3. Guia rápido de eliminação de distratores (1º dia)</h2>
+<table>
+  <caption class="sr-only">Perfis de alternativa incorreta, como identificá-los e a ação recomendada</caption>
+  <thead><tr><th scope="col">Perfil do distrator</th><th scope="col">Gatilho de identificação</th><th scope="col">Ação recomendada</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A resposta "de senso comum"</strong></td><td>Parece verdadeira no mundo real, mas não está sustentada pelo texto ou pelo gráfico da questão.</td><td>Volte ao comando e ao suporte. Sem apoio explícito no texto, elimine.</td></tr>
+    <tr><td><strong>O generalista absoluto</strong></td><td>Uso de "sempre", "nunca", "exclusivamente", "apenas", "todos".</td><td>Desconfie na hora: em Humanas e Linguagens, fenômenos sociais raramente são absolutos.</td></tr>
+    <tr><td><strong>O que extrapola o texto</strong></td><td>Traz informação correta, porém ausente do trecho apresentado.</td><td>Circule o que o texto afirma e compare item por item; o que sobra é distrator.</td></tr>
+    <tr><td><strong>O juízo de valor disfarçado</strong></td><td>Emissão de opinião, moralismo ou adjetivação forte no lugar da análise.</td><td>Prefira a alternativa descritiva e analítica; descarte a que julga em vez de explicar.</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Protocolo de execução da prova no 1º dia</h2>
+<ol class="proto">
+  <li><strong>Leitura do tema da redação nos primeiros minutos:</strong> leia a proposta antes de começar as objetivas — o tema fica ativado na memória enquanto você resolve as questões e pode render repertório.</li>
+  <li><strong>Redação garantida:</strong> escreva o rascunho e passe a limpo somando cerca de <strong>60 a 70 minutos</strong>. Deixar a redação para o final é o erro que mais custa nota.</li>
+  <li><strong>Ciências Humanas (45 questões):</strong> comece por aqui se você é mais rápido em História, Geografia, Filosofia e Sociologia; leia o comando <em>antes</em> do texto longo.</li>
+  <li><strong>Linguagens (45 questões):</strong> em textos longos, identifique tese e conclusão primeiro; em Inglês/Espanhol, procure cognatos e o tema central antes de traduzir palavra por palavra.</li>
+  <li><strong>Cartão-resposta:</strong> reserve os <strong>últimos 20 a 30 minutos</strong> exclusivamente para a marcação, conferindo número da questão e alternativas em branco.</li>
+</ol>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="logos">
+    <img src="assets/biotech_edudesign.png" alt="Bio+Tech EduDesign">
+    <img src="assets/pre_enem.png" alt="Pré-Enem Digit@l MT">
+    <img src="assets/gov_mato_grosso.png" alt="Governo do Estado de Mato Grosso">
+  </div>
+  <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT | Material de apoio · 1º dia: Linguagens, Ciências Humanas e Redação</strong></p>
+  <p>Desenvolvido por <a href="https://github.com/bio-tech-edu">Bio+Tech EduDesign</a> · Apoio institucional <strong>Governo do Estado de Mato Grosso</strong></p>
+</footer>
+
+<script>
+/* ================= CHECKLIST INTERATIVO =================
+   Converte as caixas visuais em checkboxes reais e guarda o progresso no
+   localStorage do próprio aparelho do estudante (nada é enviado a servidor).
+   A impressão continua idêntica: a barra de progresso e os botões são ocultados.
+*/
+(function checklistInterativo(){
+  var uls=document.querySelectorAll('ul.cb');
+  if(!uls.length)return;
+  var CHAVE='enem2026-'+(document.body.getAttribute('data-checklist')||'checklist')+'-v1';
+  var itens=[],salvo={};
+  try{salvo=JSON.parse(localStorage.getItem(CHAVE)||'{}');}catch(e){salvo={};}
+
+  Array.prototype.forEach.call(uls,function(ul,ui){
+    Array.prototype.forEach.call(ul.querySelectorAll('li'),function(li,li_i){
+      var span=li.querySelector('.box');
+      if(!span)return;
+      var cb=document.createElement('input');
+      cb.type='checkbox';
+      cb.className='box';
+      cb.id='ck-'+ui+'-'+li_i;
+      cb.setAttribute('aria-label',(li.textContent||'').trim().slice(0,120));
+      span.parentNode.replaceChild(cb,span);
+      itens.push(cb);
+      cb.addEventListener('change',function(){
+        li.classList.toggle('revisado',cb.checked);
+        atualizar();
+      });
+    });
+  });
+
+  var barra=document.getElementById('progressFill');
+  var texto=document.getElementById('progressTexto');
+  var caixa=document.getElementById('progresso');
+  var limpar=document.getElementById('limpar');
+  if(caixa)caixa.hidden=false;
+
+  function atualizar(){
+    var feitos=0,dados={};
+    itens.forEach(function(cb){if(cb.checked)feitos++;dados[cb.id]=cb.checked;});
+    if(barra)barra.style.width=(itens.length?Math.round(feitos*100/itens.length):0)+'%';
+    if(texto)texto.textContent=feitos+' de '+itens.length+' itens revisados'+(feitos===itens.length&&itens.length?' — checklist completo!':'');
+    try{localStorage.setItem(CHAVE,JSON.stringify(dados));}catch(e){}
+  }
+
+  itens.forEach(function(cb){
+    if(salvo[cb.id]){
+      cb.checked=true;
+      var li=cb.closest('li');
+      if(li)li.classList.add('revisado');
+    }
+  });
+  if(limpar)limpar.onclick=function(){
+    itens.forEach(function(cb){cb.checked=false;var li=cb.closest('li');if(li)li.classList.remove('revisado');});
+    try{localStorage.removeItem(CHAVE);}catch(e){}
+    atualizar();
+  };
+  atualizar();
+})();
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checklist de Estudos da Reta Final — Ciências da Natureza (ENEM)</title>
+<title>Checklist de Estudos da Reta Final — Ciências da Natureza e Matemática e Matemática e Matemática (ENEM)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -38,12 +38,60 @@
   .site-footer a{color:var(--fis);text-decoration:none}
   .site-footer a:hover{text-decoration:underline}
   }
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
+
+  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
+  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
+  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
+  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
+  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
+  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
+  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
+  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
+  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
+  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
+  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
+  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
 </style>
 </head>
-<body>
+<body data-checklist="d2">
 
 <h1>Guia de Revisão e Checklist de Reta Final</h1>
-<p class="sub">Ciências da Natureza e suas Tecnologias · ENEM, 2º dia · Plano "Raio-X Estratégico"</p>
+<p class="sub">Ciências da Natureza e Matemática e suas Tecnologias · ENEM, 2º dia · Plano "Raio-X Estratégico"</p>
 
 <div class="btnbar">
   <button onclick="window.print()">Imprimir / salvar em PDF</button>
@@ -53,6 +101,30 @@
 <div class="field">
   <span>Nome do estudante: </span>
   <span>Turma / ano: </span>
+</div>
+
+<div class="progress" id="progresso" hidden>
+  <div class="progress-topo">
+    <p class="progress-texto" id="progressTexto" aria-live="polite"></p>
+    <button type="button" class="btn-limpar" id="limpar">Limpar marcações</button>
+  </div>
+  <div class="progress-barra" role="presentation"><span id="progressFill"></span></div>
+</div>
+
+<div class="progress" id="progresso" hidden>
+  <div class="progress-topo">
+    <p class="progress-texto" id="progressTexto" aria-live="polite"></p>
+    <button type="button" class="btn-limpar" id="limpar">Limpar marcações</button>
+  </div>
+  <div class="progress-barra" role="presentation"><span id="progressFill"></span></div>
+</div>
+
+<div class="progress" id="progresso" hidden>
+  <div class="progress-topo">
+    <p class="progress-texto" id="progressTexto" aria-live="polite"></p>
+    <button type="button" class="btn-limpar" id="limpar">Limpar marcações</button>
+  </div>
+  <div class="progress-barra" role="presentation"><span id="progressFill"></span></div>
 </div>
 
 <h2>1. Checklist de conteúdos prioritários por componente</h2>
@@ -84,9 +156,39 @@
   <li><span class="box"></span><span><strong>Óptica geométrica:</strong> formação de imagens em lentes e espelhos, refração da luz e visão humana.</span></li>
 </ul>
 
+<h3><span class="tag fis">Matemática</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Razão, proporção e porcentagem:</strong> regra de três, acréscimos e descontos, juros simples e compostos.</span></li>
+  <li><span class="box"></span><span><strong>Funções:</strong> leitura e interpretação de gráficos, função afim (linear) e função quadrática; máximos e mínimos.</span></li>
+  <li><span class="box"></span><span><strong>Geometria:</strong> áreas e volumes de prismas, cilindros e cones; teorema de Pitágoras e semelhança de triângulos.</span></li>
+  <li><span class="box"></span><span><strong>Estatística e probabilidade:</strong> média, mediana, moda, desvio padrão, tabelas e gráficos; probabilidade simples e condicional.</span></li>
+  <li><span class="box"></span><span><strong>Progressões e geometria analítica:</strong> PA e PG, plano cartesiano e distância entre pontos.</span></li>
+</ul>
+
+<h3><span class="tag fis">Matemática</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Razão, proporção e porcentagem:</strong> regra de três, acréscimos e descontos, juros simples e compostos.</span></li>
+  <li><span class="box"></span><span><strong>Funções:</strong> leitura e interpretação de gráficos, função afim (linear) e função quadrática; máximos e mínimos.</span></li>
+  <li><span class="box"></span><span><strong>Geometria:</strong> áreas e volumes de prismas, cilindros e cones; teorema de Pitágoras e semelhança de triângulos.</span></li>
+  <li><span class="box"></span><span><strong>Estatística e probabilidade:</strong> média, mediana, moda, desvio padrão, tabelas e gráficos; probabilidade simples e condicional.</span></li>
+  <li><span class="box"></span><span><strong>Progressões e geometria analítica:</strong> PA e PG, plano cartesiano e distância entre pontos.</span></li>
+</ul>
+
+<h3><span class="tag fis">Matemática</span></h3>
+<ul class="cb">
+  <li><span class="box"></span><span><strong>Razão, proporção e porcentagem:</strong> regra de três, acréscimos e descontos, juros simples e compostos.</span></li>
+  <li><span class="box"></span><span><strong>Funções:</strong> leitura e interpretação de gráficos, função afim (linear) e função quadrática; máximos e mínimos.</span></li>
+  <li><span class="box"></span><span><strong>Geometria:</strong> áreas e volumes de prismas, cilindros e cones; teorema de Pitágoras e semelhança de triângulos.</span></li>
+  <li><span class="box"></span><span><strong>Estatística e probabilidade:</strong> média, mediana, moda, desvio padrão, tabelas e gráficos; probabilidade simples e condicional.</span></li>
+  <li><span class="box"></span><span><strong>Progressões e geometria analítica:</strong> PA e PG, plano cartesiano e distância entre pontos.</span></li>
+</ul>
+
 <h2>2. Guia rápido de eliminação de distratores</h2>
 <table>
-  <thead><tr><th>Perfil do distrator</th><th>Gatilho de identificação</th><th>Ação recomendada</th></tr></thead>
+  <caption class="sr-only">Perfil do distrator, gatilho de identificação e ação recomendada</caption>
+  <caption class="sr-only">Perfil do distrator, gatilho de identificação e ação recomendada</caption>
+  <caption class="sr-only">Perfil do distrator, gatilho de identificação e ação recomendada</caption>
+  <thead><tr><th scope="col">Perfil do distrator</th><th scope="col">Gatilho de identificação</th><th scope="col">Ação recomendada</th></tr></thead>
   <tbody>
     <tr><td><strong>A falsa verdade (extrapolação)</strong></td><td>Afirmação perfeita na teoria, mas sem amparo no texto-suporte.</td><td>Volte ao comando da questão e verifique o texto. Se o texto não cita, elimine.</td></tr>
     <tr><td><strong>O inversor de causa e efeito</strong></td><td>Inverte a relação de causalidade (ex.: diz que a temperatura subiu por causa da pressão).</td><td>Escreva no rascunho: [CAUSA] → [EFEITO] e compare com o texto.</td></tr>
@@ -112,6 +214,192 @@
   <p><strong>Projeto Pré-Enem Digit@l MT 2026 · Aulão em Juscimeira-MT | Material de apoio · Dados de frequência: série histórica INEP/ENEM 2014–2024</strong></p>
   <p>Desenvolvido por <a href="https://github.com/bio-tech-edu">Bio+Tech EduDesign</a> · Apoio institucional <strong>Governo do Estado de Mato Grosso</strong></p>
 </footer>
+
+<script>
+/* ================= CHECKLIST INTERATIVO =================
+   Converte as caixas visuais em checkboxes reais e guarda o progresso no
+   localStorage do próprio aparelho do estudante (nada é enviado a servidor).
+   A impressão continua idêntica: a barra de progresso e os botões são ocultados.
+*/
+(function checklistInterativo(){
+  var uls=document.querySelectorAll('ul.cb');
+  if(!uls.length)return;
+  var CHAVE='enem2026-'+(document.body.getAttribute('data-checklist')||'checklist')+'-v1';
+  var itens=[],salvo={};
+  try{salvo=JSON.parse(localStorage.getItem(CHAVE)||'{}');}catch(e){salvo={};}
+
+  Array.prototype.forEach.call(uls,function(ul,ui){
+    Array.prototype.forEach.call(ul.querySelectorAll('li'),function(li,li_i){
+      var span=li.querySelector('.box');
+      if(!span)return;
+      var cb=document.createElement('input');
+      cb.type='checkbox';
+      cb.className='box';
+      cb.id='ck-'+ui+'-'+li_i;
+      cb.setAttribute('aria-label',(li.textContent||'').trim().slice(0,120));
+      span.parentNode.replaceChild(cb,span);
+      itens.push(cb);
+      cb.addEventListener('change',function(){
+        li.classList.toggle('revisado',cb.checked);
+        atualizar();
+      });
+    });
+  });
+
+  var barra=document.getElementById('progressFill');
+  var texto=document.getElementById('progressTexto');
+  var caixa=document.getElementById('progresso');
+  var limpar=document.getElementById('limpar');
+  if(caixa)caixa.hidden=false;
+
+  function atualizar(){
+    var feitos=0,dados={};
+    itens.forEach(function(cb){if(cb.checked)feitos++;dados[cb.id]=cb.checked;});
+    if(barra)barra.style.width=(itens.length?Math.round(feitos*100/itens.length):0)+'%';
+    if(texto)texto.textContent=feitos+' de '+itens.length+' itens revisados'+(feitos===itens.length&&itens.length?' — checklist completo!':'');
+    try{localStorage.setItem(CHAVE,JSON.stringify(dados));}catch(e){}
+  }
+
+  itens.forEach(function(cb){
+    if(salvo[cb.id]){
+      cb.checked=true;
+      var li=cb.closest('li');
+      if(li)li.classList.add('revisado');
+    }
+  });
+  if(limpar)limpar.onclick=function(){
+    itens.forEach(function(cb){cb.checked=false;var li=cb.closest('li');if(li)li.classList.remove('revisado');});
+    try{localStorage.removeItem(CHAVE);}catch(e){}
+    atualizar();
+  };
+  atualizar();
+})();
+</script>
+
+
+<script>
+/* ================= CHECKLIST INTERATIVO =================
+   Converte as caixas visuais em checkboxes reais e guarda o progresso no
+   localStorage do próprio aparelho do estudante (nada é enviado a servidor).
+   A impressão continua idêntica: a barra de progresso e os botões são ocultados.
+*/
+(function checklistInterativo(){
+  var uls=document.querySelectorAll('ul.cb');
+  if(!uls.length)return;
+  var CHAVE='enem2026-'+(document.body.getAttribute('data-checklist')||'checklist')+'-v1';
+  var itens=[],salvo={};
+  try{salvo=JSON.parse(localStorage.getItem(CHAVE)||'{}');}catch(e){salvo={};}
+
+  Array.prototype.forEach.call(uls,function(ul,ui){
+    Array.prototype.forEach.call(ul.querySelectorAll('li'),function(li,li_i){
+      var span=li.querySelector('.box');
+      if(!span)return;
+      var cb=document.createElement('input');
+      cb.type='checkbox';
+      cb.className='box';
+      cb.id='ck-'+ui+'-'+li_i;
+      cb.setAttribute('aria-label',(li.textContent||'').trim().slice(0,120));
+      span.parentNode.replaceChild(cb,span);
+      itens.push(cb);
+      cb.addEventListener('change',function(){
+        li.classList.toggle('revisado',cb.checked);
+        atualizar();
+      });
+    });
+  });
+
+  var barra=document.getElementById('progressFill');
+  var texto=document.getElementById('progressTexto');
+  var caixa=document.getElementById('progresso');
+  var limpar=document.getElementById('limpar');
+  if(caixa)caixa.hidden=false;
+
+  function atualizar(){
+    var feitos=0,dados={};
+    itens.forEach(function(cb){if(cb.checked)feitos++;dados[cb.id]=cb.checked;});
+    if(barra)barra.style.width=(itens.length?Math.round(feitos*100/itens.length):0)+'%';
+    if(texto)texto.textContent=feitos+' de '+itens.length+' itens revisados'+(feitos===itens.length&&itens.length?' — checklist completo!':'');
+    try{localStorage.setItem(CHAVE,JSON.stringify(dados));}catch(e){}
+  }
+
+  itens.forEach(function(cb){
+    if(salvo[cb.id]){
+      cb.checked=true;
+      var li=cb.closest('li');
+      if(li)li.classList.add('revisado');
+    }
+  });
+  if(limpar)limpar.onclick=function(){
+    itens.forEach(function(cb){cb.checked=false;var li=cb.closest('li');if(li)li.classList.remove('revisado');});
+    try{localStorage.removeItem(CHAVE);}catch(e){}
+    atualizar();
+  };
+  atualizar();
+})();
+</script>
+
+
+<script>
+/* ================= CHECKLIST INTERATIVO =================
+   Converte as caixas visuais em checkboxes reais e guarda o progresso no
+   localStorage do próprio aparelho do estudante (nada é enviado a servidor).
+   A impressão continua idêntica: a barra de progresso e os botões são ocultados.
+*/
+(function checklistInterativo(){
+  var uls=document.querySelectorAll('ul.cb');
+  if(!uls.length)return;
+  var CHAVE='enem2026-'+(document.body.getAttribute('data-checklist')||'checklist')+'-v1';
+  var itens=[],salvo={};
+  try{salvo=JSON.parse(localStorage.getItem(CHAVE)||'{}');}catch(e){salvo={};}
+
+  Array.prototype.forEach.call(uls,function(ul,ui){
+    Array.prototype.forEach.call(ul.querySelectorAll('li'),function(li,li_i){
+      var span=li.querySelector('.box');
+      if(!span)return;
+      var cb=document.createElement('input');
+      cb.type='checkbox';
+      cb.className='box';
+      cb.id='ck-'+ui+'-'+li_i;
+      cb.setAttribute('aria-label',(li.textContent||'').trim().slice(0,120));
+      span.parentNode.replaceChild(cb,span);
+      itens.push(cb);
+      cb.addEventListener('change',function(){
+        li.classList.toggle('revisado',cb.checked);
+        atualizar();
+      });
+    });
+  });
+
+  var barra=document.getElementById('progressFill');
+  var texto=document.getElementById('progressTexto');
+  var caixa=document.getElementById('progresso');
+  var limpar=document.getElementById('limpar');
+  if(caixa)caixa.hidden=false;
+
+  function atualizar(){
+    var feitos=0,dados={};
+    itens.forEach(function(cb){if(cb.checked)feitos++;dados[cb.id]=cb.checked;});
+    if(barra)barra.style.width=(itens.length?Math.round(feitos*100/itens.length):0)+'%';
+    if(texto)texto.textContent=feitos+' de '+itens.length+' itens revisados'+(feitos===itens.length&&itens.length?' — checklist completo!':'');
+    try{localStorage.setItem(CHAVE,JSON.stringify(dados));}catch(e){}
+  }
+
+  itens.forEach(function(cb){
+    if(salvo[cb.id]){
+      cb.checked=true;
+      var li=cb.closest('li');
+      if(li)li.classList.add('revisado');
+    }
+  });
+  if(limpar)limpar.onclick=function(){
+    itens.forEach(function(cb){cb.checked=false;var li=cb.closest('li');if(li)li.classList.remove('revisado');});
+    try{localStorage.removeItem(CHAVE);}catch(e){}
+    atualizar();
+  };
+  atualizar();
+})();
+</script>
+
 
 </body>
 </html>
