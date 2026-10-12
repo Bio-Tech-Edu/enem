@@ -54,38 +54,6 @@
   li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
   @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
   @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
-
-  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
-  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
-  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
-  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
-  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
-  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
-  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
-  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
-  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
-  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
-  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
-  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
-  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
-
-  /* ================= VERSÃO INTERATIVA (marcações salvas no navegador) ================= */
-  .progress{margin:0 0 26px;padding:14px 16px;border:1px solid var(--line,#E1E6E3);border-radius:10px;background:#F7F9F8}
-  .progress-topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
-  .progress-texto{margin:0;font-size:.82rem;font-weight:600;color:var(--ink,#12181D)}
-  .btn-limpar{background:none;border:1px solid var(--line,#E1E6E3);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft,#55606A);cursor:pointer;font-family:inherit}
-  .btn-limpar:hover{color:var(--ink,#12181D);border-color:var(--ink,#12181D)}
-  .progress-barra{height:7px;border-radius:9999px;background:#E3E8E5;margin-top:10px;overflow:hidden}
-  .progress-barra span{display:block;height:100%;width:0;border-radius:9999px;background:var(--fis,#3159C9);transition:width .25s ease}
-  ul.cb input.box{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--ink,#12181D);border-radius:3px;flex-shrink:0;margin:3px 0 0;cursor:pointer;background:#fff;position:relative;display:inline-block}
-  ul.cb input.box:checked{background:var(--fis,#3159C9);border-color:var(--fis,#3159C9)}
-  ul.cb input.box:checked::after{content:'';position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-  ul.cb input.box:focus-visible{outline:2.5px solid var(--fis,#3159C9);outline-offset:2px}
-  li.revisado > span:last-child{text-decoration:line-through;opacity:.5}
-  @media print{.progress{display:none}.btnbar{display:none}ul.cb input.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-  @media (prefers-reduced-motion:reduce){.progress-barra span{transition:none}}
 </style>
 </head>
 <body data-checklist="d1">
@@ -189,45 +157,55 @@
 <h2>2. Checklist da redação nota 1000 (as cinco competências)</h2>
 <p class="sub">Texto dissertativo-argumentativo · até 30 linhas. Marque cada item ao revisar o seu próprio texto.</p>
 
-<h3><span class="tag" style="color:var(--ink,#12181D)">C1 · Norma padrão</span></h3>
-<ul class="cb">
-  <li><span class="box"></span><span>Acentuação</span></li>
-  <li><span class="box"></span><span>Separação silábica</span></li>
-  <li><span class="box"></span><span>Crase e vírgula</span></li>
-  <li><span class="box"></span><span>Ortografia</span></li>
-  <li><span class="box"></span><span>Concordância e regência</span></li>
-  <li><span class="box"></span><span>Registro formal</span></li>
-</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+  
+  <!-- Coluna 1: C1, C2 e C3 -->
+  <div style="flex: 1; min-width: 280px;">
+    <h3><span class="tag" style="color:var(--ink,#12181D)">C1 · Norma padrão</span></h3>
+    <ul class="cb">
+      <li><span class="box"></span><span>Acentuação</span></li>
+      <li><span class="box"></span><span>Separação silábica</span></li>
+      <li><span class="box"></span><span>Crase e vírgula</span></li>
+      <li><span class="box"></span><span>Ortografia</span></li>
+      <li><span class="box"></span><span>Concordância e regência</span></li>
+      <li><span class="box"></span><span>Registro formal</span></li>
+    </ul>
 
-<h3><span class="tag" style="color:var(--ink,#12181D)">C2 · Tema e tipo</span></h3>
-<ul class="cb">
-  <li><span class="box"></span><span>Recorte exato do tema</span></li>
-  <li><span class="box"></span><span>Estrutura dissertativo-argumentativa</span></li>
-  <li><span class="box"></span><span>Repertório legítimo, pertinente e produtivo</span></li>
-</ul>
+    <h3><span class="tag" style="color:var(--ink,#12181D)">C2 · Tema e tipo</span></h3>
+    <ul class="cb">
+      <li><span class="box"></span><span>Recorte exato do tema</span></li>
+      <li><span class="box"></span><span>Estrutura dissertativo-argumentativa</span></li>
+      <li><span class="box"></span><span>Repertório legítimo, pertinente e produtivo</span></li>
+    </ul>
 
-<h3><span class="tag" style="color:var(--ink,#12181D)">C3 · Argumentação</span></h3>
-<ul class="cb">
-  <li><span class="box"></span><span>Projeto de texto</span></li>
-  <li><span class="box"></span><span>Tese clara</span></li>
-  <li><span class="box"></span><span>Argumentos desenvolvidos</span></li>
-  <li><span class="box"></span><span>Sem contradições</span></li>
-</ul>
+    <h3><span class="tag" style="color:var(--ink,#12181D)">C3 · Argumentação</span></h3>
+    <ul class="cb">
+      <li><span class="box"></span><span>Projeto de texto</span></li>
+      <li><span class="box"></span><span>Tese clara</span></li>
+      <li><span class="box"></span><span>Argumentos desenvolvidos</span></li>
+      <li><span class="box"></span><span>Sem contradições</span></li>
+    </ul>
+  </div>
 
-<h3><span class="tag" style="color:var(--ink,#12181D)">C4 · Coesão</span></h3>
-<ul class="cb">
-  <li><span class="box"></span><span>Conectivos variados</span></li>
-  <li><span class="box"></span><span>Retomadas sem repetição</span></li>
-  <li><span class="box"></span><span>Ligação entre parágrafos</span></li>
-</ul>
+  <!-- Coluna 2: C4 e C5 -->
+  <div style="flex: 1; min-width: 280px;">
+    <h3><span class="tag" style="color:var(--ink,#12181D)">C4 · Coesão</span></h3>
+    <ul class="cb">
+      <li><span class="box"></span><span>Conectivos variados</span></li>
+      <li><span class="box"></span><span>Retomadas sem repetição</span></li>
+      <li><span class="box"></span><span>Ligação entre parágrafos</span></li>
+    </ul>
 
-<h3><span class="tag" style="color:var(--ink,#12181D)">C5 · Intervenção</span></h3>
-<ul class="cb">
-  <li><span class="box"></span><span>Agente e ação</span></li>
-  <li><span class="box"></span><span>Meio e finalidade</span></li>
-  <li><span class="box"></span><span>Detalhamento</span></li>
-  <li><span class="box"></span><span>Respeito aos direitos humanos</span></li>
-</ul>
+    <h3><span class="tag" style="color:var(--ink,#12181D)">C5 · Intervenção</span></h3>
+    <ul class="cb">
+      <li><span class="box"></span><span>Agente e ação</span></li>
+      <li><span class="box"></span><span>Meio e finalidade</span></li>
+      <li><span class="box"></span><span>Detalhamento</span></li>
+      <li><span class="box"></span><span>Respeito aos direitos humanos</span></li>
+    </ul>
+  </div>
+  
+</div>
 
 <h2>3. Guia rápido de eliminação de distratores (1º dia)</h2>
 <table>
